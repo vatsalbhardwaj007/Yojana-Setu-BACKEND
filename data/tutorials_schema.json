@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TutorialStep",
+  "description": "Step-by-step application guidance for a scheme.",
+  "type": "object",
+  "required": ["step_number", "title", "description"],
+  "properties": {
+    "step_number": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Sequence order of this step"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 128,
+      "description": "Short step title"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "Detailed instructions for this step"
+    },
+    "tips": {
+      "type": "string",
+      "description": "Optional helpful tips for this step"
+    }
+  },
+  "additionalProperties": false
+}

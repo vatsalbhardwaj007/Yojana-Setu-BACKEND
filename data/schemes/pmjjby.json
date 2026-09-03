@@ -1,0 +1,152 @@
+{
+  "scheme_code": "pmjjby",
+  "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+  "description": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) is a life insurance scheme offering term life insurance cover for death due to any reason. It is a one-year cover, renewable year to year, offered by banks and post offices and administered through life insurance companies. Individuals who are account holders of participating banks or post offices and are aged 18 to 50 years are entitled to join.",
+  "ministry": "Ministry of Finance",
+  "department": "Ministry of Finance",
+  "scheme_type": "insurance",
+  "status": "active",
+  "effective_from": "2015-05-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMJJBY",
+    "Pradhan Mantri Jeevan Jyoti Bima Yojana"
+  ],
+  "target_groups": [
+    "bank account holders",
+    "post office account holders"
+  ],
+  "tags": [
+    "Life Insurance",
+    "Insurance",
+    "Financial Security",
+    "Bank Account",
+    "Social Security"
+  ],
+  "benefits": [
+    "One-year term life cover of ₹2,00,000 for subscribers aged 18-50 years.",
+    "Death due to any reason is covered under the scheme.",
+    "Premium is ₹436 per annum per subscriber, auto-debited from the subscriber's bank or post office account."
+  ],
+  "official_url": "https://jansuraksha.gov.in/",
+  "rules": [
+    {
+      "rule_group": "age_minimum",
+      "field": "applicant_age",
+      "operator": ">=",
+      "value": 18,
+      "description": "Applicant must be at least 18 years old."
+    },
+    {
+      "rule_group": "age_maximum",
+      "field": "applicant_age",
+      "operator": "<=",
+      "value": 50,
+      "description": "Applicant must be at most 50 years old."
+    },
+    {
+      "rule_group": "account_holding",
+      "field": "has_individual_bank_or_post_office_account",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must hold an individual bank or post office account with a participating bank or post office."
+    }
+  ],
+  "exclusion_rules": [],
+  "documents": [],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Download the application form",
+      "description": "Download and print the Consent-cum-Declaration Form from https://www.jansuraksha.gov.in/Files/PMJJBY/English/ApplicationForm.pdf."
+    },
+    {
+      "step_number": 2,
+      "title": "Fill and sign the form",
+      "description": "Fill in all required details and sign the application form."
+    },
+    {
+      "step_number": 3,
+      "title": "Attach required documents",
+      "description": "Attach self-attested copies of required documents."
+    },
+    {
+      "step_number": 4,
+      "title": "Submit to Bank or Post Office",
+      "description": "Submit the completed form and documents to an authorised official of the Bank or Post Office."
+    },
+    {
+      "step_number": 5,
+      "title": "Receive acknowledgement",
+      "description": "The official returns the Acknowledgement Slip-cum-Certificate of Insurance after processing the application."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "applicant_age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant in years."
+    },
+    {
+      "field_name": "has_individual_bank_or_post_office_account",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant holds an individual bank or post office account."
+    },
+    {
+      "field_name": "bank_or_post_office_account_type",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["savings", "current", "post_office_savings"],
+      "description": "Type of bank or post office account held by the applicant."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for communication and premium auto-debit notifications."
+    },
+    {
+      "field_name": "has_consent_cum_declaration_form",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has the signed Consent-cum-Declaration Form ready for submission."
+    },
+    {
+      "field_name": "premium_auto_debit_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has authorized auto-debit of the ₹436 annual premium from their bank or post office account."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PMJJBY content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://jansuraksha.gov.in/Files/PMJJBY/English/Rules.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PMJJBY official guidelines referenced from the supplied source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.jansuraksha.gov.in/Files/PMJJBY/English/ApplicationForm.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PMJJBY Consent-cum-Declaration application form referenced from the supplied source."
+    }
+  ]
+}

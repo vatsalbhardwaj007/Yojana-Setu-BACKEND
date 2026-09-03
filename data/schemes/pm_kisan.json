@@ -1,0 +1,227 @@
+{
+  "scheme_code": "pm_kisan",
+  "name": "Pradhan Mantri Kisan Samman Nidhi",
+  "description": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a Central Sector Scheme that provides income support to eligible landholding farmer families with cultivable land.",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "department": "Department of Agriculture, Cooperation & Farmers' Welfare",
+  "scheme_type": "benefit",
+  "status": "active",
+  "aliases": [
+    "PM-KISAN",
+    "PM Kisan"
+  ],
+  "target_groups": [
+    "farmers",
+    "landholding farmer families"
+  ],
+  "tags": [
+    "Agricultural Inputs",
+    "Agriculture",
+    "Farmers",
+    "Income Support",
+    "Kisan"
+  ],
+  "benefits": [
+    "Eligible farmer families receive ₹6,000 per year.",
+    "The annual benefit is paid in three equal instalments of ₹2,000 every four months.",
+    "The benefit is transferred directly to the bank account of eligible beneficiaries through Direct Benefit Transfer (DBT)."
+  ],
+  "official_url": "https://pmkisan.gov.in/",
+  "effective_from": "2018-12-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "rules": [
+    {
+      "rule_group": "landholding",
+      "field": "has_cultivable_land_in_name",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must belong to a landholding farmer family with cultivable land held in the family's name."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "institutional_landholding",
+      "field": "is_institutional_land_holder",
+      "operator": "=",
+      "value": true,
+      "description": "Institutional land holders are excluded from PM-KISAN benefits."
+    },
+    {
+      "rule_group": "constitutional_post",
+      "field": "is_former_or_present_constitutional_post_holder",
+      "operator": "=",
+      "value": true,
+      "description": "Former and present holders of constitutional posts are excluded."
+    },
+    {
+      "rule_group": "political_position",
+      "field": "is_former_or_present_specified_political_office_holder",
+      "operator": "=",
+      "value": true,
+      "description": "Specified former or present Ministers, Members of Parliament, Members of Legislative Assemblies or Councils, Mayors and District Panchayat Chairpersons are excluded."
+    },
+    {
+      "rule_group": "government_employment",
+      "field": "is_serving_or_retired_specified_government_employee",
+      "operator": "=",
+      "value": true,
+      "description": "Serving or retired specified government officers and employees, PSE employees, autonomous institution employees and regular local-body employees are excluded, except eligible MTS, Class IV or Group D employees."
+    },
+    {
+      "rule_group": "pension",
+      "field": "monthly_pension",
+      "operator": ">=",
+      "value": 10000,
+      "description": "Superannuated or retired pensioners receiving monthly pension of ₹10,000 or more are excluded, subject to the specified MTS, Class IV and Group D exception."
+    },
+    {
+      "rule_group": "income_tax",
+      "field": "paid_income_tax_last_assessment_year",
+      "operator": "=",
+      "value": true,
+      "description": "Persons who paid income tax in the last assessment year are excluded."
+    },
+    {
+      "rule_group": "professional_practice",
+      "field": "is_registered_practicing_specified_professional",
+      "operator": "=",
+      "value": true,
+      "description": "Registered and practicing doctors, engineers, lawyers, chartered accountants and architects are excluded."
+    },
+    {
+      "rule_group": "nri",
+      "field": "is_nri",
+      "operator": "=",
+      "value": true,
+      "description": "For new beneficiaries, landholding farmer families that are Non-Resident Indians are excluded."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Aadhaar is used for identity and authentication."
+    },
+    {
+      "document_type": "land_record",
+      "document_name": "Landholding papers",
+      "is_mandatory": true,
+      "description": "Documents establishing the cultivable landholding are required."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Savings Bank Account",
+      "is_mandatory": true,
+      "description": "Bank account details are required for receiving the benefit through DBT."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Open the PM-KISAN portal",
+      "description": "Visit the official PM-KISAN portal.",
+      "tips": "Use the official Government of India portal."
+    },
+    {
+      "step_number": 2,
+      "title": "Start New Farmer Registration",
+      "description": "Select the New Farmer Registration option."
+    },
+    {
+      "step_number": 3,
+      "title": "Authenticate Aadhaar",
+      "description": "Enter the required Aadhaar and mobile details and complete OTP-based Aadhaar authentication."
+    },
+    {
+      "step_number": 4,
+      "title": "Enter farmer details",
+      "description": "Fill in the required farmer and landholding information."
+    },
+    {
+      "step_number": 5,
+      "title": "Provide required documents",
+      "description": "Provide or upload the mandatory documents requested during registration."
+    },
+    {
+      "step_number": 6,
+      "title": "Submit registration",
+      "description": "Review the entered information and submit the registration."
+    },
+    {
+      "step_number": 7,
+      "title": "Check application status",
+      "description": "Use the PM-KISAN status facilities to check registration or beneficiary status."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "has_cultivable_land_in_name",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to a farmer family holding cultivable land in its name."
+    },
+    {
+      "field_name": "is_institutional_land_holder",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the landholder is an institutional land holder."
+    },
+    {
+      "field_name": "monthly_pension",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Monthly pension amount for determining the specified pension exclusion."
+    },
+    {
+      "field_name": "paid_income_tax_last_assessment_year",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant paid income tax in the last assessment year."
+    },
+    {
+      "field_name": "is_nri",
+      "field_type": "boolean",
+      "is_required": true,
+      "description": "Whether the applicant is a Non-Resident Indian."
+    },
+    {
+      "field_name": "is_former_or_present_constitutional_post_holder",
+      "field_type": "boolean",
+      "is_required": true,
+      "description": "Whether the applicant is a former or present holder of a constitutional post."
+    },
+    {
+      "field_name": "is_former_or_present_specified_political_office_holder",
+      "field_type": "boolean",
+      "is_required": true,
+      "description": "Whether the applicant falls within the specified political-office exclusion."
+    },
+    {
+      "field_name": "is_serving_or_retired_specified_government_employee",
+      "field_type": "boolean",
+      "is_required": true,
+      "description": "Whether the applicant falls within the specified government-employment exclusion."
+    },
+    {
+      "field_name": "is_registered_practicing_specified_professional",
+      "field_type": "boolean",
+      "is_required": true,
+      "description": "Whether the applicant is a registered and practicing professional covered by the PM-KISAN exclusion."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmkisan.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Verified against the official PM-KISAN portal and PM-KISAN operational guidelines. myScheme was used as the primary scheme-discovery source."
+    }
+  ]
+}

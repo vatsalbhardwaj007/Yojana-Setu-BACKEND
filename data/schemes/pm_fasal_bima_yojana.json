@@ -1,0 +1,364 @@
+{
+  "scheme_code": "pm_fasal_bima_yojana",
+  "name": "Pradhan Mantri Fasal Bima Yojana",
+  "description": "Pradhan Mantri Fasal Bima Yojana (PMFBY) is a crop insurance scheme that provides financial protection to farmers against crop loss due to natural disasters, pests, and diseases.",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "department": "Department of Agriculture, Cooperation and Farmers' Welfare",
+  "scheme_type": "insurance",
+  "status": "active",
+  "aliases": [
+    "PMFBY",
+    "Pradhan Mantri Fasal Bima Yojana",
+    "Pradhan Mantri Fasal Bima Yojna"
+  ],
+  "target_groups": [
+    "farmers",
+    "tenant farmers",
+    "sharecroppers"
+  ],
+  "tags": [
+    "Agriculture",
+    "Crop",
+    "Farmer",
+    "Insurance",
+    "Premium"
+  ],
+  "benefits": [
+    "Provides financial assistance to farmers suffering crop damage or loss arising from unforeseen events.",
+    "Provides crop insurance coverage against specified natural disasters, pests, and diseases.",
+    "Maximum farmer premium is 2% for Kharif food and oilseed crops, 1.5% for Rabi food and oilseed crops, and 5% for yearly commercial or horticultural crops, with the remaining premium subsidized by the government.",
+    "Provides coverage for prevented sowing, with indemnity claims of up to a maximum of 25% of the sum insured in eligible cases.",
+    "Provides post-harvest loss coverage for eligible crops for up to 14 days after harvesting when stored in cut-and-spread condition.",
+    "Provides coverage for specified localized calamities such as hailstorms, landslides, and inundation.",
+    "Uses technologies such as satellite imaging, drones, and mobile applications for crop-loss estimation and claim settlement."
+  ],
+  "official_url": "https://pmfby.gov.in/",
+  "effective_from": "2016-02-18",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "rules": [
+    {
+      "rule_group": "farmer_status",
+      "field": "is_farmer",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be a farmer, including a tenant farmer or sharecropper, growing a notified crop in a notified area."
+    },
+    {
+      "rule_group": "crop",
+      "field": "is_growing_notified_crop",
+      "operator": "=",
+      "value": true,
+      "description": "The farmer must be growing a crop notified under the scheme."
+    },
+    {
+      "rule_group": "area",
+      "field": "is_in_notified_area",
+      "operator": "=",
+      "value": true,
+      "description": "The insured crop must be grown in an area notified under PMFBY."
+    },
+    {
+      "rule_group": "insurable_interest",
+      "field": "has_insurable_interest",
+      "operator": "=",
+      "value": true,
+      "description": "The farmer must have an insurable interest in the insured crop."
+    },
+    {
+      "rule_group": "land_cultivation",
+      "field": "is_cultivator_or_sharecropper_on_insured_land",
+      "operator": "=",
+      "value": true,
+      "description": "The farmer must be a cultivator or sharecropper on the insured land."
+    },
+    {
+      "rule_group": "land_documentation",
+      "field": "has_valid_land_ownership_or_tenure_document",
+      "operator": "=",
+      "value": true,
+      "description": "The farmer must possess a valid and authenticated land ownership certificate or valid land tenure agreement."
+    },
+    {
+      "rule_group": "application_deadline",
+      "field": "applied_within_prescribed_timeframe",
+      "operator": "=",
+      "value": true,
+      "description": "The farmer must apply for insurance coverage within the prescribed timeframe."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "non_notified_area",
+      "field": "is_in_notified_area",
+      "operator": "=",
+      "value": false,
+      "description": "Crop losses in non-notified areas are generally not covered under PMFBY."
+    },
+    {
+      "rule_group": "crop_cycle",
+      "field": "loss_within_specified_crop_cycle",
+      "operator": "=",
+      "value": false,
+      "description": "Crop losses occurring outside the specified crop cycle may be excluded from coverage."
+    },
+    {
+      "rule_group": "negligence",
+      "field": "loss_due_to_farmer_negligence_or_non_compliance",
+      "operator": "=",
+      "value": true,
+      "description": "Losses resulting from farmer negligence or non-compliance with recommended agricultural practices may be excluded."
+    },
+    {
+      "rule_group": "specified_limits",
+      "field": "loss_beyond_specified_limits",
+      "operator": "=",
+      "value": true,
+      "description": "Losses beyond specified limits or thresholds may not be covered."
+    },
+    {
+      "rule_group": "premium",
+      "field": "premium_contribution_paid",
+      "operator": "=",
+      "value": false,
+      "description": "Failure to pay the required farmer premium contribution may result in loss of coverage."
+    },
+    {
+      "rule_group": "duplicate_compensation",
+      "field": "received_compensation_for_same_crop_loss_from_other_source",
+      "operator": "=",
+      "value": true,
+      "description": "Farmers must not have received compensation for the same crop loss from another medium or source."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "photograph",
+      "document_name": "Passport-sized Photograph",
+      "is_mandatory": true,
+      "description": "Passport-sized photograph is listed among the required documents."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Bank Passbook",
+      "is_mandatory": true,
+      "description": "Bank passbook is listed among the required documents."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Identity Proof",
+      "is_mandatory": true,
+      "description": "Accepted identity proof may include Aadhaar Card, PAN Card, Voter ID, Bank Passbook with Photo, Kisan Photo Book or NREGA Job Card."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Address Proof",
+      "is_mandatory": true,
+      "description": "Accepted address proof may include Aadhaar Card, PAN Card, Voter ID, Electricity Bill or Bank Passbook with Photo."
+    },
+    {
+      "document_type": "land_record",
+      "document_name": "Land Records",
+      "is_mandatory": true,
+      "description": "Evidence of land records such as State Records of Right, Land Possession Certificate and applicable agreements or contracts is required."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Declaration about Crop Sown or Intended to be Sown",
+      "is_mandatory": true,
+      "description": "A declaration about the crop sown or intended to be sown is required."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Open the PMFBY portal",
+      "description": "Visit the official Pradhan Mantri Fasal Bima Yojana website.",
+      "tips": "Use the official PMFBY website."
+    },
+    {
+      "step_number": 2,
+      "title": "Open Farmer Corner",
+      "description": "Click Farmer Corner on the PMFBY homepage and select Guest Farmer to open the online registration form."
+    },
+    {
+      "step_number": 3,
+      "title": "Complete farmer registration",
+      "description": "Enter the mandatory farmer, residential, farmer ID and bank account details, then complete the captcha and create the user account."
+    },
+    {
+      "step_number": 4,
+      "title": "Open crop insurance application",
+      "description": "After successful registration, select Farmer Corner and choose Apply for Crop Insurance Yourself, then log in using the farmer login."
+    },
+    {
+      "step_number": 5,
+      "title": "Authenticate with OTP",
+      "description": "Enter the registered mobile number, request an OTP, enter the OTP and submit to open the Farmer Application Form."
+    },
+    {
+      "step_number": 6,
+      "title": "Complete application and upload documents",
+      "description": "Fill all mandatory application fields and upload the required documents in the specified format and size."
+    },
+    {
+      "step_number": 7,
+      "title": "Review and submit",
+      "description": "Preview the application and uploaded documents, then submit the application."
+    },
+    {
+      "step_number": 8,
+      "title": "Pay the premium",
+      "description": "Choose Pay Later or Make Payment. After successful payment, the payment receipt can be printed."
+    },
+    {
+      "step_number": 9,
+      "title": "Track application",
+      "description": "Use the Application Status option on the PMFBY website to track the application."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "is_farmer",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is a farmer, including a tenant farmer or sharecropper, growing a notified crop in a notified area."
+    },
+    {
+      "field_name": "age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Applicant's age as requested in the PMFBY farmer registration form."
+    },
+    {
+      "field_name": "caste_category",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Applicant's caste category as requested in the farmer registration form."
+    },
+    {
+      "field_name": "gender",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Applicant's gender as requested in the farmer registration form."
+    },
+    {
+      "field_name": "farmer_type",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Farmer type as requested in the PMFBY registration form."
+    },
+    {
+      "field_name": "farmer_category",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Farmer category as requested in the PMFBY registration form."
+    },
+    {
+      "field_name": "state",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "State of residence or application as requested in the PMFBY registration form."
+    },
+    {
+      "field_name": "district",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "District as requested in the PMFBY registration form."
+    },
+    {
+      "field_name": "is_growing_notified_crop",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer is growing a crop notified under PMFBY."
+    },
+    {
+      "field_name": "is_in_notified_area",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the insured crop is grown in a notified area."
+    },
+    {
+      "field_name": "has_insurable_interest",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer has an insurable interest in the insured crop."
+    },
+    {
+      "field_name": "is_cultivator_or_sharecropper_on_insured_land",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer is a cultivator or sharecropper on the insured land."
+    },
+    {
+      "field_name": "has_valid_land_ownership_or_tenure_document",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer has valid land ownership or land tenure documentation."
+    },
+    {
+      "field_name": "applied_within_prescribed_timeframe",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer applied within the prescribed insurance application timeframe."
+    },
+    {
+      "field_name": "premium_contribution_paid",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the required farmer premium contribution has been paid."
+    },
+    {
+      "field_name": "received_compensation_for_same_crop_loss_from_other_source",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the farmer has already received compensation for the same crop loss from another source."
+    },
+    {
+      "field_name": "loss_within_specified_crop_cycle",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the crop loss occurred within the specified crop cycle."
+    },
+    {
+      "field_name": "loss_due_to_farmer_negligence_or_non_compliance",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the loss resulted from farmer negligence or non-compliance with recommended agricultural practices."
+    },
+    {
+      "field_name": "loss_beyond_specified_limits",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the loss falls beyond specified coverage limits or thresholds."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmfby.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Record based on the supplied myScheme PMFBY page. The page also provides the official PMFBY website and official guidelines and FAQ references."
+    }
+  ]
+}

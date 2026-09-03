@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scheme",
+  "description": "Top-level schema for a government scheme record in data/schemes/*.json",
+  "type": "object",
+  "required": ["scheme_code", "name", "description", "ministry", "department", "scheme_type", "status", "effective_from", "last_verified_at"],
+  "properties": {
+    "scheme_code": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Stable lowercase snake_case canonical identifier, e.g. pm_kisan"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 256,
+      "description": "Official scheme name"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 5000,
+      "description": "Brief scheme description"
+    },
+    "ministry": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Parent ministry"
+    },
+    "department": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Department or implementing body"
+    },
+    "scheme_type": {
+      "type": "string",
+      "enum": ["subsidy", "insurance", "pension", "benefit", "loan_guarantee", "scholarship", "employment", "healthcare", "housing", "other"],
+      "description": "Broad classification"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "inactive", "archived"],
+      "description": "Current operational status"
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "description": "Alternative names or abbreviations"
+    },
+    "target_groups": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "description": "Primary beneficiary categories"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "description": "Searchable tags"
+    },
+    "benefits": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Key benefits or entitlements of the scheme"
+    },
+    "official_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Official government URL"
+    },
+    "effective_from": {
+      "type": "string",
+      "format": "date",
+      "description": "Date scheme came into effect (YYYY-MM-DD)"
+    },
+    "effective_to": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date scheme ended, null if ongoing"
+    },
+    "last_verified_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of last data verification"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_group", "field", "operator", "value", "description"],
+        "properties": {
+          "rule_group": { "type": "string", "minLength": 1 },
+          "field": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "operator": { "type": "string", "enum": ["=", "!=", ">=", "<=", ">", "<", "in", "not_in", "exists", "between"] },
+          "value": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" },
+              { "type": "boolean" },
+              { "type": "array" },
+              { "type": "object", "properties": { "min": { "type": "number" }, "max": { "type": "number" } }, "required": ["min", "max"] }
+            ]
+          },
+          "description": { "type": "string", "minLength": 5 }
+        },
+        "additionalProperties": false
+      },
+      "description": "Eligibility rules (AND-only, no OR)"
+    },
+    "exclusion_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_group", "field", "operator", "value", "description"],
+        "properties": {
+          "rule_group": { "type": "string", "minLength": 1 },
+          "field": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "operator": { "type": "string", "enum": ["=", "!=", ">=", "<=", ">", "<", "in", "not_in", "exists", "between"] },
+          "value": {
+            "oneOf": [
+              { "type": "string" },
+              { "type": "number" },
+              { "type": "boolean" },
+              { "type": "array" },
+              { "type": "object", "properties": { "min": { "type": "number" }, "max": { "type": "number" } }, "required": ["min", "max"] }
+            ]
+          },
+          "description": { "type": "string", "minLength": 5 }
+        },
+        "additionalProperties": false
+      },
+      "description": "Exclusion criteria — rules that disqualify an applicant"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["document_type", "document_name", "is_mandatory"],
+        "properties": {
+          "document_type": { "type": "string", "enum": ["identity_proof", "address_proof", "income_proof", "category_certificate", "age_proof", "land_record", "bank_details", "photograph", "declaration", "other"] },
+          "document_name": { "type": "string", "minLength": 3 },
+          "is_mandatory": { "type": "boolean" },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "description": "Required or recommended documents"
+    },
+    "tutorial_steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step_number", "title", "description"],
+        "properties": {
+          "step_number": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string", "minLength": 3, "maxLength": 128 },
+          "description": { "type": "string", "minLength": 10, "maxLength": 2000 },
+          "tips": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "description": "Step-by-step application guidance"
+    },
+    "profile_fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field_name", "field_type", "is_required"],
+        "properties": {
+          "field_name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+          "field_type": { "type": "string", "enum": ["text", "number", "date", "boolean", "select"] },
+          "is_required": { "type": "boolean" },
+          "allowed_values": { "type": ["array", "null"] },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "description": "User profile fields required for eligibility checks"
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["verification_method", "last_verified_at"],
+        "properties": {
+          "verification_method": { "type": "string", "enum": ["online", "offline", "both"] },
+          "verification_url": { "type": ["string", "null"] },
+          "helpline_number": { "type": ["string", "null"] },
+          "last_verified_at": { "type": "string", "format": "date-time" },
+          "notes": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      },
+      "description": "Verification methods, URLs, and helpline contact"
+    }
+  },
+  "additionalProperties": false
+}

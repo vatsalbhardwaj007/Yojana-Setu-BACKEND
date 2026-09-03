@@ -1,0 +1,361 @@
+{
+  "scheme_code": "pmmvy",
+  "name": "Pradhan Mantri Matru Vandana Yojana",
+  "description": "Pradhan Mantri Matru Vandana Yojana (PMMVY) is a Centrally Sponsored flagship scheme of the Ministry of Women and Child Development designed to provide maternity benefits to pregnant women and lactating mothers belonging to socially and economically disadvantaged sections. PMMVY 2.0, implemented under Mission Shakti and effective from 01 April 2022, provides an additional incentive of ₹6,000 in one instalment for the second child if the second child is a girl.",
+  "ministry": "Ministry of Women and Child Development",
+  "department": "Ministry of Women and Child Development",
+  "scheme_type": "benefit",
+  "status": "active",
+  "effective_from": "2022-04-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMMVY",
+    "PMMVY 2.0",
+    "Pradhan Mantri Matru Vandana Yojana 2.0"
+  ],
+  "target_groups": [
+    "pregnant women",
+    "lactating mothers",
+    "socially disadvantaged women",
+    "economically disadvantaged women"
+  ],
+  "tags": [
+    "Cash Incentive",
+    "Financial Assistance",
+    "Good Nutrition",
+    "Maternity Benefit",
+    "Pregnant Women"
+  ],
+  "benefits": [
+    "First child: ₹5,000 total PMMVY maternity benefit in two instalments, with the source stating the beneficiary may also receive JSY cash incentive after institutional delivery so that on average a woman receives ₹6,000.",
+    "First instalment: ₹3,000 on registration of pregnancy and at least one antenatal check-up within six months from LMP at an Anganwadi Centre or approved health facility.",
+    "Second instalment: ₹2,000 after childbirth registration and after the child receives all due vaccines up to 14 weeks as admissible under the Universal Immunization Programme.",
+    "Second child if the second child is a girl: ₹6,000 in one instalment after birth, subject to pregnancy registration, ANC within six months from LMP, girl-child birth registration and due vaccinations up to 14 weeks.",
+    "In case of miscarriage or stillbirth, the beneficiary is treated as a fresh beneficiary for any future pregnancy.",
+    "The scheme aims to promote positive behavioural change towards the girl child and contribute to improving Sex Ratio at Birth."
+  ],
+  "official_url": "https://pmmvy.wcd.gov.in/",
+  "rules": [
+    {
+      "rule_group": "disadvantaged_category",
+      "field": "meets_pmmvy_disadvantaged_category",
+      "operator": "=",
+      "value": true,
+      "description": "The applicant must belong to a socially or economically disadvantaged category listed in the supplied source. Categories include SC, ST, women with 40%+ disability, BPL ration card holders, PM-JAY beneficiaries, e-Shram card holders, women farmers receiving Kisan Samman Nidhi, MGNREGA Job Card holders, women with net family income below ₹8 lakh per year, pregnant or lactating AWW/AWH/ASHA workers, NFSA ration-card holders, and any other category prescribed by the Central Government."
+    },
+    {
+      "rule_group": "applicant_status",
+      "field": "is_pregnant_woman",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant should be a pregnant woman."
+    },
+    {
+      "rule_group": "age",
+      "field": "age_at_least_19",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant should be at least 19 years old."
+    },
+    {
+      "rule_group": "employment",
+      "field": "experiencing_wage_loss_due_to_pregnancy",
+      "operator": "=",
+      "value": true,
+      "description": "The supplied source states that the applicant should be employed and experiencing wage-loss due to pregnancy."
+    },
+    {
+      "rule_group": "application_timeline",
+      "field": "application_within_270_days_of_childbirth",
+      "operator": "=",
+      "value": true,
+      "description": "Eligible beneficiary can apply within 270 days from childbirth according to the supplied source."
+    },
+    {
+      "rule_group": "child_birth_condition",
+      "field": "meets_pmmvy_child_birth_condition",
+      "operator": "=",
+      "value": true,
+      "description": "The supplied source states that the scheme provides maternity benefits for the first child and, under PMMVY 2.0, for the second child if the second child is a girl. It also contains wording that the scheme is applicable only for the first live birth. Preserve this source terminology without resolving the inconsistency."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "government_employment",
+      "field": "is_in_regular_government_or_psu_employment_or_receiving_similar_maternity_benefit",
+      "operator": "=",
+      "value": true,
+      "description": "Pregnant women and lactating mothers in regular employment with the Central Government, State Government or Public Sector Undertaking, or those receiving similar benefits under any law, are not entitled to PMMVY benefits."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Aadhaar Card of the applicant."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Aadhaar-mapped Bank/Post Office account",
+      "is_mandatory": true,
+      "description": "Aadhaar-mapped bank or post office account for direct benefit transfer."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Bank Account Details",
+      "is_mandatory": true,
+      "description": "Bank account details of the applicant."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "Eligibility Proof",
+      "is_mandatory": true,
+      "description": "Evidence of belonging to a disadvantaged category. The supplied source lists acceptable evidence including income below ₹8 lakh, MGNREGA Job Card, Kisan Samman Nidhi beneficiary proof, e-Shram card, PM-JAY beneficiary proof, BPL ration card, disability proof, SC/ST proof, AWW/AWH/ASHA proof, and NFSA ration card."
+    },
+    {
+      "document_type": "other",
+      "document_name": "MCP/RCHI Card",
+      "is_mandatory": true,
+      "description": "Mother and Child Protection or Reproductive and Child Health Inventory card."
+    },
+    {
+      "document_type": "other",
+      "document_name": "LMP Date record",
+      "is_mandatory": true,
+      "description": "Record of Last Menstrual Period date."
+    },
+    {
+      "document_type": "other",
+      "document_name": "ANC Date record",
+      "is_mandatory": true,
+      "description": "Record of Antenatal Check-up date."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Child Birth Certificate",
+      "is_mandatory": true,
+      "description": "Birth certificate of the child."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Child Immunization Details",
+      "is_mandatory": true,
+      "description": "Details of child immunization up to 14 weeks under the Universal Immunization Programme."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit the PMMVY portal",
+      "description": "Visit the official PMMVY website at https://pmmvy.wcd.gov.in/."
+    },
+    {
+      "step_number": 2,
+      "title": "Click Citizen Login",
+      "description": "Click the Citizen Login option on the PMMVY portal."
+    },
+    {
+      "step_number": 3,
+      "title": "Enter and verify mobile number",
+      "description": "Enter your mobile number and complete the verification process."
+    },
+    {
+      "step_number": 4,
+      "title": "Enter personal and location details",
+      "description": "Enter full name, State, District, Area, Block, Village and relationship with beneficiary."
+    },
+    {
+      "step_number": 5,
+      "title": "Create the account",
+      "description": "Create the user account with the required credentials."
+    },
+    {
+      "step_number": 6,
+      "title": "Log in to the portal",
+      "description": "Log in using User ID, password and captcha."
+    },
+    {
+      "step_number": 7,
+      "title": "Open Beneficiary Registration",
+      "description": "Navigate to Data Entry and select Beneficiary Registration."
+    },
+    {
+      "step_number": 8,
+      "title": "Enter personal information",
+      "description": "Enter detailed personal information as required in the registration form."
+    },
+    {
+      "step_number": 9,
+      "title": "Choose child order option",
+      "description": "Choose First Child or Second Child under the scheme application option."
+    },
+    {
+      "step_number": 10,
+      "title": "Complete all required form details",
+      "description": "Complete all required form details including eligibility, Aadhaar and bank information."
+    },
+    {
+      "step_number": 11,
+      "title": "Submit the application",
+      "description": "Review and submit the application."
+    },
+    {
+      "step_number": 12,
+      "title": "Ensure payment and contact information",
+      "description": "Ensure Aadhaar-based payment information and mobile number are available for application-status and disbursement communication."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "age_at_least_19",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is at least 19 years old."
+    },
+    {
+      "field_name": "age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant."
+    },
+    {
+      "field_name": "is_pregnant_woman",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is a pregnant woman."
+    },
+    {
+      "field_name": "experiencing_wage_loss_due_to_pregnancy",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is employed and experiencing wage-loss due to pregnancy."
+    },
+    {
+      "field_name": "meets_pmmvy_disadvantaged_category",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to a socially or economically disadvantaged category as listed in the supplied source."
+    },
+    {
+      "field_name": "meets_pmmvy_child_birth_condition",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant meets the child birth condition. The supplied source states the scheme covers the first child and the second child if it is a girl, while also containing wording about first live birth only."
+    },
+    {
+      "field_name": "application_within_270_days_of_childbirth",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the application is within 270 days from childbirth."
+    },
+    {
+      "field_name": "is_in_regular_government_or_psu_employment_or_receiving_similar_maternity_benefit",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is in regular government or PSU employment or receiving similar maternity benefits under any law."
+    },
+    {
+      "field_name": "has_aadhaar",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant has an Aadhaar card."
+    },
+    {
+      "field_name": "aadhaar_mapped_bank_or_post_office_account_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether an Aadhaar-mapped bank or post office account is available for direct benefit transfer."
+    },
+    {
+      "field_name": "mobile_number_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether a mobile number is available for application-status and disbursement communication."
+    },
+    {
+      "field_name": "has_mcp_rchi_card",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a Mother and Child Protection or Reproductive and Child Health Inventory card is available."
+    },
+    {
+      "field_name": "lmp_date_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the Last Menstrual Period date is available."
+    },
+    {
+      "field_name": "anc_date_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the Antenatal Check-up date is available."
+    },
+    {
+      "field_name": "child_birth_registered",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the child birth has been registered."
+    },
+    {
+      "field_name": "child_immunization_up_to_14_weeks",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the child has received all due vaccinations up to 14 weeks."
+    },
+    {
+      "field_name": "child_order",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": ["first", "second"],
+      "description": "Whether this is the first or second child."
+    },
+    {
+      "field_name": "second_child_is_girl",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the second child is a girl, relevant for the PMMVY 2.0 second-girl-child provision."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility, exclusion criteria, application process and documents were curated from the supplied myScheme PMMVY content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmmvy.wcd.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official PMMVY portal supplied as the official source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://wcd.delhi.gov.in/wcd/pradhan-mantri-matru-vandana-yojana-pmmvy",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Ministry/WCD reference supplied by the source."
+    }
+  ]
+}

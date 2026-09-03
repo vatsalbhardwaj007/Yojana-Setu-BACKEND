@@ -1,0 +1,352 @@
+{
+  "scheme_code": "dr_syama_prasad_mookerjee_durghtana_sahayta_yojana",
+  "name": "Dr. Syama Prasad Mookerjee Durghtana Sahayta Yojana",
+  "description": "Dr. Syama Prasad Mookerjee Durghtana Sahayta Yojana is a state-level welfare scheme of the Government of Haryana, implemented by the Social Justice and Empowerment Department. It provides financial assistance of ₹1,00,000 to individuals aged 18-70 who have suffered accidental death or disability and are not registered under Pradhan Mantri Suraksha Bima Yojana (PMSBY). The scheme is applicable only to permanent residents of Haryana who are currently residing in Haryana.",
+  "ministry": "Government of Haryana",
+  "department": "Social Justice and Empowerment Department",
+  "scheme_type": "benefit",
+  "status": "active",
+  "effective_from": "2017-01-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "Dr. Syama Prasad Mookerjee Durghtana Sahayta Yojana",
+    "Durghtana Sahayta Yojana"
+  ],
+  "target_groups": [
+    "Accident victims",
+    "Persons with disabilities",
+    "Eligible claimants of accidental death"
+  ],
+  "tags": [
+    "Accidental Assistance",
+    "Death Compensation",
+    "Disability",
+    "Financial Assistance",
+    "Haryana"
+  ],
+  "benefits": [
+    "₹1,00,000 for accidental death.",
+    "₹1,00,000 for total and permanent loss of both eyes.",
+    "₹1,00,000 for loss of both hands or both feet.",
+    "₹1,00,000 for loss of one eye and one hand or one foot."
+  ],
+  "official_url": "https://saralharyana.gov.in/",
+  "rules": [
+    {
+      "rule_group": "residency",
+      "field": "is_permanent_resident_of_haryana",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be a permanent resident of Haryana."
+    },
+    {
+      "rule_group": "residency",
+      "field": "currently_residing_in_haryana",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must currently be residing in Haryana."
+    },
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": ">=",
+      "value": 18,
+      "description": "Applicant must be at least 18 years old."
+    },
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": "<=",
+      "value": 70,
+      "description": "Applicant must be at most 70 years old."
+    },
+    {
+      "rule_group": "accident",
+      "field": "accident_resulted_in_death_or_disability",
+      "operator": "=",
+      "value": true,
+      "description": "The applicant or the person on whose behalf the claim is made must have suffered an accident resulting in death or disability."
+    },
+    {
+      "rule_group": "claimant_condition",
+      "field": "meets_eligible_claimant_condition",
+      "operator": "=",
+      "value": true,
+      "description": "In disability cases, the claimant must be the disabled person themselves. In death cases, eligible claimants are the spouse if not remarried, all unmarried children with equal share, mother, or father. No other claimant is eligible."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "existing_insurance",
+      "field": "registered_under_pmsby",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant should not be registered under Pradhan Mantri Suraksha Bima Yojana (PMSBY)."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Aadhaar Card of the applicant or claimant."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Proof of Haryana Residency",
+      "is_mandatory": true,
+      "description": "Document proving permanent residency and current residence in Haryana."
+    },
+    {
+      "document_type": "age_proof",
+      "document_name": "Age Proof Document",
+      "is_mandatory": true,
+      "description": "Document proving the applicant's age."
+    },
+    {
+      "document_type": "other",
+      "document_name": "FIR Copy of the Accident",
+      "is_mandatory": true,
+      "description": "Copy of the FIR filed for the accident."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Medical Report / Disability Certificate",
+      "is_mandatory": false,
+      "description": "Medical report or disability certificate, applicable for disability cases."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Death Certificate",
+      "is_mandatory": false,
+      "description": "Death certificate, applicable for death cases."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Postmortem Report",
+      "is_mandatory": false,
+      "description": "Postmortem report, applicable for death cases."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit Antyodaya-SARAL Portal",
+      "description": "Visit the Antyodaya-SARAL Portal at https://saralharyana.gov.in/."
+    },
+    {
+      "step_number": 2,
+      "title": "Register as new user",
+      "description": "Click on 'New User/Register Here' to create a new account."
+    },
+    {
+      "step_number": 3,
+      "title": "Enter registration details",
+      "description": "Enter mandatory registration details including Name, Email ID, Mobile Number and password."
+    },
+    {
+      "step_number": 4,
+      "title": "Verify OTP",
+      "description": "Verify the OTP received through email or mobile, or use the verification link."
+    },
+    {
+      "step_number": 5,
+      "title": "Login to the portal",
+      "description": "Login to the Antyodaya-SARAL Portal using your credentials."
+    },
+    {
+      "step_number": 6,
+      "title": "Open Scheme/Services list",
+      "description": "Open the 'Scheme/Services list' section."
+    },
+    {
+      "step_number": 7,
+      "title": "Select the scheme",
+      "description": "Select Dr. Syama Prasad Mookerjee Durghtana Sahayta Yojana and click 'Apply for Service/Scheme'."
+    },
+    {
+      "step_number": 8,
+      "title": "Fill application details",
+      "description": "Fill in all required application details."
+    },
+    {
+      "step_number": 9,
+      "title": "Submit the application",
+      "description": "Review and submit the application."
+    },
+    {
+      "step_number": 10,
+      "title": "Track application",
+      "description": "Track application or appeal status at https://status.saralharyana.nic.in/."
+    },
+    {
+      "step_number": 11,
+      "title": "Track ticket",
+      "description": "Track ticket at https://eticketing.saralharyana.nic.in/CitizenViewComplaints.aspx."
+    },
+    {
+      "step_number": 12,
+      "title": "SMS tracking",
+      "description": "For registered mobile number: send SARAL to 9954699899. For other mobile number: send SARAL <Application ID/Ticket No.> to 9954699899."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "applicant_age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant in years."
+    },
+    {
+      "field_name": "is_permanent_resident_of_haryana",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is a permanent resident of Haryana."
+    },
+    {
+      "field_name": "currently_residing_in_haryana",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is currently residing in Haryana."
+    },
+    {
+      "field_name": "accident_resulted_in_death_or_disability",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant or the person on whose behalf the claim is made has suffered an accident resulting in death or disability."
+    },
+    {
+      "field_name": "meets_eligible_claimant_condition",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the claimant meets the eligible claimant condition: disabled person themselves in disability cases, or spouse if not remarried, unmarried children, mother, or father in death cases."
+    },
+    {
+      "field_name": "registered_under_pmsby",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is registered under Pradhan Mantri Suraksha Bima Yojana (PMSBY)."
+    },
+    {
+      "field_name": "accident_case_type",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["death", "disability"],
+      "description": "Type of accident case: death or disability."
+    },
+    {
+      "field_name": "disability_type",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["loss_of_both_eyes", "loss_of_both_hands_or_feet", "loss_of_one_eye_and_one_hand_or_foot"],
+      "description": "Type of disability, if applicable."
+    },
+    {
+      "field_name": "claimant_relationship",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["self", "spouse", "unmarried_child", "mother", "father"],
+      "description": "Relationship of the claimant to the affected person."
+    },
+    {
+      "field_name": "spouse_remarried",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the spouse has remarried, relevant for death cases."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for communication and tracking."
+    },
+    {
+      "field_name": "email",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Email address of the applicant for communication."
+    },
+    {
+      "field_name": "aadhaar_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has an Aadhaar card available."
+    },
+    {
+      "field_name": "haryana_residency_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether proof of Haryana residency is available."
+    },
+    {
+      "field_name": "age_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether age proof document is available."
+    },
+    {
+      "field_name": "fir_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether FIR copy of the accident is available."
+    },
+    {
+      "field_name": "medical_or_disability_certificate_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether medical report or disability certificate is available, applicable for disability cases."
+    },
+    {
+      "field_name": "death_certificate_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether death certificate is available, applicable for death cases."
+    },
+    {
+      "field_name": "postmortem_report_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether postmortem report is available, applicable for death cases."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://saralharyana.gov.in/",
+      "helpline_number": "0172-3968400",
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Antyodaya-SARAL Portal for Haryana state schemes."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://saralharyana.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Government of Haryana scheme information source as represented by the supplied myScheme content."
+    }
+  ]
+}
