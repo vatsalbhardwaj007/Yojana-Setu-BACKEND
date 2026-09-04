@@ -1,6 +1,5 @@
 """Comprehensive unit tests for the generic deterministic EligibilityEngine."""
 
-import pytest
 from app.repositories.scheme_repository import SchemeRepository
 from app.rules.engine import EligibilityEngine
 from app.schemas.scheme import SchemeRuleResponse

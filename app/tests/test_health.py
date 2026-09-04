@@ -1,6 +1,7 @@
 """Basic test to verify application setup and health endpoint."""
 
 from fastapi.testclient import TestClient
+
 from app.main import app
 
 client = TestClient(app)

@@ -1,8 +1,7 @@
 """Database entity models representing M4's six canonical scheme tables."""
 
 from dataclasses import dataclass, field
-from datetime import date, datetime
-from typing import Any, Dict, List, Optional, Union
+from typing import Any
 
 
 @dataclass
@@ -17,7 +16,7 @@ class SchemeRuleModel:
     value: Any
     description: str
     rule_purpose: str = "eligibility"  # 'eligibility' or 'exclusion'
-    created_at: Optional[str] = None
+    created_at: str | None = None
 
 
 @dataclass
@@ -29,8 +28,8 @@ class SchemeDocumentModel:
     document_type: str
     document_name: str
     is_mandatory: bool = True
-    description: Optional[str] = None
-    created_at: Optional[str] = None
+    description: str | None = None
+    created_at: str | None = None
 
 
 @dataclass
@@ -42,8 +41,8 @@ class TutorialStepModel:
     step_number: int
     title: str
     description: str
-    tips: Optional[str] = None
-    created_at: Optional[str] = None
+    tips: str | None = None
+    created_at: str | None = None
 
 
 @dataclass
@@ -53,11 +52,11 @@ class SchemeVerificationModel:
     id: str
     scheme_id: str
     verification_method: str
-    verification_url: Optional[str] = None
-    helpline_number: Optional[str] = None
-    last_verified_at: Optional[str] = None
-    notes: Optional[str] = None
-    created_at: Optional[str] = None
+    verification_url: str | None = None
+    helpline_number: str | None = None
+    last_verified_at: str | None = None
+    notes: str | None = None
+    created_at: str | None = None
 
 
 @dataclass
@@ -69,9 +68,9 @@ class SchemeProfileFieldModel:
     field_name: str
     field_type: str
     is_required: bool = True
-    allowed_values: Optional[List[Any]] = None
-    description: Optional[str] = None
-    created_at: Optional[str] = None
+    allowed_values: list[Any] | None = None
+    description: str | None = None
+    created_at: str | None = None
 
 
 @dataclass
@@ -86,21 +85,21 @@ class SchemeModel:
     department: str
     scheme_type: str
     status: str = "active"
-    aliases: List[str] = field(default_factory=list)
-    target_groups: List[str] = field(default_factory=list)
-    tags: List[str] = field(default_factory=list)
-    benefits: List[str] = field(default_factory=list)
-    official_url: Optional[str] = None
-    effective_from: Optional[str] = None
-    effective_to: Optional[str] = None
-    last_verified_at: Optional[str] = None
-    created_at: Optional[str] = None
-    updated_at: Optional[str] = None
+    aliases: list[str] = field(default_factory=list)
+    target_groups: list[str] = field(default_factory=list)
+    tags: list[str] = field(default_factory=list)
+    benefits: list[str] = field(default_factory=list)
+    official_url: str | None = None
+    effective_from: str | None = None
+    effective_to: str | None = None
+    last_verified_at: str | None = None
+    created_at: str | None = None
+    updated_at: str | None = None
 
     # Related entities (populated when joining)
-    rules: List[SchemeRuleModel] = field(default_factory=list)
-    exclusion_rules: List[SchemeRuleModel] = field(default_factory=list)
-    documents: List[SchemeDocumentModel] = field(default_factory=list)
-    tutorial_steps: List[TutorialStepModel] = field(default_factory=list)
-    profile_fields: List[SchemeProfileFieldModel] = field(default_factory=list)
-    verification: List[SchemeVerificationModel] = field(default_factory=list)
+    rules: list[SchemeRuleModel] = field(default_factory=list)
+    exclusion_rules: list[SchemeRuleModel] = field(default_factory=list)
+    documents: list[SchemeDocumentModel] = field(default_factory=list)
+    tutorial_steps: list[TutorialStepModel] = field(default_factory=list)
+    profile_fields: list[SchemeProfileFieldModel] = field(default_factory=list)
+    verification: list[SchemeVerificationModel] = field(default_factory=list)

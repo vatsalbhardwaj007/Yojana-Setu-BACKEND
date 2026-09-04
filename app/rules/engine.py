@@ -3,14 +3,13 @@
 Source of truth is database rules. No scheme-specific logic is permitted.
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from app.rules.evaluator import evaluate_condition
 from app.schemas.eligibility import (
     EligibilityCheckResponse,
     EligibilityStatus,
     EvaluatedRuleResponse,
-    ReasonCode,
 )
 from app.schemas.scheme import SchemeRuleResponse
 
@@ -22,15 +21,15 @@ class EligibilityEngine:
     def evaluate(
         cls,
         scheme_code: str,
-        eligibility_rules: List[SchemeRuleResponse],
-        exclusion_rules: List[SchemeRuleResponse],
-        profile: Dict[str, Any],
+        eligibility_rules: list[SchemeRuleResponse],
+        exclusion_rules: list[SchemeRuleResponse],
+        profile: dict[str, Any],
     ) -> EligibilityCheckResponse:
         """Evaluate a citizen's profile against scheme eligibility and exclusion rules."""
-        evaluated_rules: List[EvaluatedRuleResponse] = []
-        missing_fields_dict: Dict[str, None] = {}
-        failed_rule_descriptions: List[str] = []
-        triggered_exclusion_descriptions: List[str] = []
+        evaluated_rules: list[EvaluatedRuleResponse] = []
+        missing_fields_dict: dict[str, None] = {}
+        failed_rule_descriptions: list[str] = []
+        triggered_exclusion_descriptions: list[str] = []
 
         any_rule_failed = False
         any_exclusion_triggered = False
@@ -196,9 +195,9 @@ class EligibilityEngine:
         # NOT ELIGIBLE: if ANY exclusion triggered OR ANY eligibility rule failed
         if any_exclusion_triggered or any_rule_failed:
             status: EligibilityStatus = "Not Eligible"
-            eligible: Optional[bool] = False
-            reason_codes: List[str] = []
-            reasons: List[str] = []
+            eligible: bool | None = False
+            reason_codes: list[str] = []
+            reasons: list[str] = []
 
             if any_exclusion_triggered:
                 reason_codes.append("EXCLUSION_TRIGGERED")

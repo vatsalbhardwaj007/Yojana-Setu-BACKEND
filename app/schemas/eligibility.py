@@ -1,6 +1,7 @@
 """Pydantic schemas for eligibility evaluation request and explainable response."""
 
-from typing import Any, Dict, List, Literal, Optional
+from typing import Any, Literal
+
 from pydantic import BaseModel, ConfigDict, Field
 
 EligibilityStatus = Literal["Eligible", "Potentially Eligible", "Not Eligible"]
@@ -17,7 +18,7 @@ class EvaluatedRuleResponse(BaseModel):
     operator: str = Field(..., description="Canonical operator used for evaluation")
     expected: Any = Field(..., description="Expected value from scheme rule definition")
     actual: Any = Field(None, description="Actual profile value, or None if missing")
-    passed: Optional[bool] = Field(
+    passed: bool | None = Field(
         None,
         description="True if rule passed, False if failed, None if missing information",
     )
@@ -36,7 +37,7 @@ class EligibilityCheckRequest(BaseModel):
         min_length=1,
         description="Canonical snake_case scheme identifier, e.g. pm_kisan",
     )
-    profile: Dict[str, Any] = Field(
+    profile: dict[str, Any] = Field(
         default_factory=dict,
         description="Citizen profile attributes as key-value pairs",
     )
@@ -50,23 +51,23 @@ class EligibilityCheckResponse(BaseModel):
         ...,
         description="'Eligible', 'Potentially Eligible', or 'Not Eligible'",
     )
-    eligible: Optional[bool] = Field(
+    eligible: bool | None = Field(
         None,
         description="True for Eligible, False for Not Eligible, None (null) for Potentially Eligible",
     )
-    reason_codes: List[str] = Field(
+    reason_codes: list[str] = Field(
         default_factory=list,
         description="Deterministic machine-readable reason codes",
     )
-    reasons: List[str] = Field(
+    reasons: list[str] = Field(
         default_factory=list,
         description="Human-readable explanation reasons derived from failed/triggered rules",
     )
-    missing_fields: List[str] = Field(
+    missing_fields: list[str] = Field(
         default_factory=list,
         description="Required profile fields that were missing or not provided",
     )
-    evaluated_rules: List[EvaluatedRuleResponse] = Field(
+    evaluated_rules: list[EvaluatedRuleResponse] = Field(
         default_factory=list,
         description="List of all rules evaluated with individual outcomes",
     )

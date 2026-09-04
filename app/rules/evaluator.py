@@ -15,7 +15,7 @@ Supported canonical operators:
 Pure, deterministic evaluation independent of HTTP, FastAPI, and database.
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any
 
 
 def _is_number(val: Any) -> bool:
@@ -154,7 +154,7 @@ def evaluate_condition(
     actual: Any,
     expected: Any,
     field_present: bool = True,
-) -> Tuple[bool, Optional[str]]:
+) -> tuple[bool, str | None]:
     """Evaluate a single rule condition deterministically.
 
     Returns:
@@ -185,7 +185,7 @@ def evaluate_condition(
         if operator == "between":
             return _eval_between(actual, expected), None
 
-    except Exception as e:
-        return False, f"Evaluation error: {str(e)}"
+    except Exception as e:  # noqa: BLE001
+        return False, f"Evaluation error: {e!s}"
 
     return False, "Unknown evaluation error"

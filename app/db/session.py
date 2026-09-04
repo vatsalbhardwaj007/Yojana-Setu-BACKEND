@@ -4,9 +4,10 @@ import json
 import logging
 import sqlite3
 import uuid
+from collections.abc import Generator
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Generator, Optional
+from typing import Any
 
 from app.core.config import settings
 
@@ -129,10 +130,17 @@ CREATE TABLE IF NOT EXISTS scheme_profile_fields (
 );
 
 CREATE INDEX IF NOT EXISTS idx_scheme_profile_fields_scheme_id ON scheme_profile_fields (scheme_id);
+
+CREATE TABLE IF NOT EXISTS user_profiles (
+    id TEXT PRIMARY KEY,
+    profile_data TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
 """
 
 
-def get_db_path(custom_path: Optional[str] = None) -> str:
+def get_db_path(custom_path: str | None = None) -> str:
     """Resolve database path."""
     if custom_path:
         return custom_path
@@ -142,7 +150,7 @@ def get_db_path(custom_path: Optional[str] = None) -> str:
 
 
 @contextmanager
-def get_db_connection(db_path: Optional[str] = None) -> Generator[sqlite3.Connection, None, None]:
+def get_db_connection(db_path: str | None = None) -> Generator[sqlite3.Connection, None, None]:
     """Provide a contextual database connection with row factory and foreign keys enabled."""
     target_path = get_db_path(db_path)
     conn = sqlite3.connect(target_path)
@@ -158,7 +166,7 @@ def get_db_connection(db_path: Optional[str] = None) -> Generator[sqlite3.Connec
         conn.close()
 
 
-def init_db(db_path: Optional[str] = None, seed_if_empty: bool = True) -> None:
+def init_db(db_path: str | None = None, seed_if_empty: bool = True) -> None:
     """Initialize the 6 canonical tables and optionally seed M4 schemes."""
     with get_db_connection(db_path) as conn:
         conn.executescript(CREATE_TABLES_SQL)
@@ -358,7 +366,7 @@ def seed_canonical_schemes(conn: sqlite3.Connection) -> int:
 _supabase_client = None
 
 
-def get_supabase_client() -> Optional[Any]:
+def get_supabase_client() -> Any | None:
     """Return Supabase client if configured, else None."""
     global _supabase_client
     if _supabase_client is not None:
@@ -370,7 +378,7 @@ def get_supabase_client() -> Optional[Any]:
 
             _supabase_client = create_client(settings.SUPABASE_URL, settings.SUPABASE_KEY)
             return _supabase_client
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.warning("Failed to initialize Supabase client: %s", e)
             return None
     return None

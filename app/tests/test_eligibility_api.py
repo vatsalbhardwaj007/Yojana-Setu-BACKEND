@@ -1,6 +1,5 @@
 """Integration tests for the /eligibility/check API endpoint."""
 
-import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app

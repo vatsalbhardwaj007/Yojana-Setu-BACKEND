@@ -1,5 +1,7 @@
 """API routes for scheme eligibility evaluation."""
 
+from typing import Annotated
+
 from fastapi import APIRouter, Depends, HTTPException, status
 
 from app.schemas.eligibility import (
@@ -17,10 +19,13 @@ def get_eligibility_service() -> EligibilityService:
     return EligibilityService()
 
 
+EligibilityServiceDep = Annotated[EligibilityService, Depends(get_eligibility_service)]
+
+
 @router.post("/check", response_model=EligibilityCheckResponse)
 def check_eligibility(
     payload: EligibilityCheckRequest,
-    service: EligibilityService = Depends(get_eligibility_service),
+    service: EligibilityServiceDep,
 ):
     """Evaluate citizen profile against a government scheme's canonical rules."""
     try:

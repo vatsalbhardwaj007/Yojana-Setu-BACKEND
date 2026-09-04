@@ -15,11 +15,11 @@ Validates the 10 Phase 1 testing requirements:
 
 import os
 import tempfile
+
 import pytest
 from fastapi.testclient import TestClient
 
 from app.db.session import (
-    deterministic_uuid,
     get_db_connection,
     init_db,
 )

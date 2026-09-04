@@ -1,6 +1,5 @@
 """Unit tests for low-level condition evaluator across all 10 canonical operators."""
 
-import pytest
 from app.rules.evaluator import evaluate_condition
 
 
@@ -238,4 +237,4 @@ def test_operator_exists():
 def test_unsupported_operator():
     passed, err = evaluate_condition("regex", "abc", "a.*")
     assert passed is False
-    assert "Unsupported operator" in err
+    assert err is not None and "Unsupported operator" in err

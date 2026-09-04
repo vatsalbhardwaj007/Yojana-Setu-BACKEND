@@ -1,6 +1,6 @@
 """Eligibility service orchestrating repository queries and rule engine evaluation."""
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 from app.repositories.scheme_repository import SchemeRepository
 from app.rules.engine import EligibilityEngine
@@ -11,11 +11,11 @@ from app.services.scheme_service import SchemeNotFoundError
 class EligibilityService:
     """Service orchestrating scheme retrieval and deterministic rule evaluation."""
 
-    def __init__(self, repository: Optional[SchemeRepository] = None):
+    def __init__(self, repository: SchemeRepository | None = None):
         self.repository = repository or SchemeRepository()
 
     def check_eligibility(
-        self, scheme_code: str, profile: Dict[str, Any]
+        self, scheme_code: str, profile: dict[str, Any]
     ) -> EligibilityCheckResponse:
         """Retrieve canonical scheme rules from database and evaluate eligibility."""
         scheme_detail = self.repository.get_by_code(scheme_code)

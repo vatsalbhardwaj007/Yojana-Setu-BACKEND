@@ -1,7 +1,7 @@
 """Repository layer for querying government schemes and canonical relations."""
 
 import json
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar
 
 from app.db.session import get_db_connection, init_db
 from app.schemas.scheme import (
@@ -18,7 +18,7 @@ from app.schemas.scheme import (
 class SchemeRepository:
     """Repository providing data access for the six canonical scheme tables."""
 
-    def __init__(self, db_path: Optional[str] = None):
+    def __init__(self, db_path: str | None = None):
         self.db_path = db_path
         init_db(self.db_path, seed_if_empty=True)
 
@@ -128,13 +128,13 @@ class SchemeRepository:
     # -----------------------------------------------------------------------
     def get_all(
         self,
-        scheme_type: Optional[str] = None,
-        status: Optional[str] = None,
-        ministry: Optional[str] = None,
-    ) -> List[SchemeSummaryResponse]:
+        scheme_type: str | None = None,
+        status: str | None = None,
+        ministry: str | None = None,
+    ) -> list[SchemeSummaryResponse]:
         """List schemes with optional filters."""
         query = "SELECT * FROM schemes WHERE 1=1"
-        params: List[Any] = []
+        params: list[Any] = []
 
         if scheme_type:
             query += " AND scheme_type = ?"
@@ -154,7 +154,70 @@ class SchemeRepository:
             rows = cursor.fetchall()
             return [self._map_scheme_summary(row) for row in rows]
 
-    def get_by_code(self, scheme_code: str) -> Optional[SchemeDetailResponse]:
+    def get_paged(
+        self,
+        scheme_type: str | None = None,
+        status: str | None = "active",
+        ministry: str | None = None,
+        search: str | None = None,
+        target_group: str | None = None,
+        state: str | None = None,
+        limit: int | None = 50,
+        offset: int | None = 0,
+    ) -> tuple[list[SchemeSummaryResponse], int]:
+        """List schemes with advanced filtering and total count."""
+        where_clauses: list[str] = ["1=1"]
+        params: list[Any] = []
+
+        if scheme_type:
+            st_pattern = f"%{scheme_type.strip().lower()}%"
+            where_clauses.append("(LOWER(scheme_type) = ? OR LOWER(tags) LIKE ? OR LOWER(description) LIKE ?)")
+            params.extend([scheme_type.strip().lower(), st_pattern, st_pattern])
+        if status:
+            where_clauses.append("status = ?")
+            params.append(status)
+        if ministry:
+            where_clauses.append("ministry = ?")
+            params.append(ministry)
+        if search:
+            search_pattern = f"%{search.strip().lower()}%"
+            where_clauses.append(
+                "(LOWER(name) LIKE ? OR LOWER(description) LIKE ? OR LOWER(scheme_code) LIKE ? OR LOWER(tags) LIKE ?)"
+            )
+            params.extend([search_pattern, search_pattern, search_pattern, search_pattern])
+        if target_group:
+            tg_pattern = f"%{target_group.strip().lower()}%"
+            where_clauses.append("(LOWER(target_groups) LIKE ? OR LOWER(tags) LIKE ?)")
+            params.extend([tg_pattern, tg_pattern])
+        if state:
+            state_pattern = f"%{state.strip().lower()}%"
+            where_clauses.append("(LOWER(tags) LIKE ? OR LOWER(description) LIKE ? OR LOWER(benefits) LIKE ?)")
+            params.extend([state_pattern, state_pattern, state_pattern])
+
+        where_sql = " AND ".join(where_clauses)
+
+        with get_db_connection(self.db_path) as conn:
+            cursor = conn.cursor()
+            # Count total matching
+            cursor.execute(f"SELECT COUNT(*) FROM schemes WHERE {where_sql}", params)
+            total = cursor.fetchone()[0]
+
+            # Fetch paged items
+            query = f"SELECT * FROM schemes WHERE {where_sql} ORDER BY name ASC"
+            query_params = list(params)
+            if limit is not None:
+                query += " LIMIT ?"
+                query_params.append(limit)
+            if offset is not None:
+                query += " OFFSET ?"
+                query_params.append(offset)
+
+            cursor.execute(query, query_params)
+            rows = cursor.fetchall()
+            items = [self._map_scheme_summary(row) for row in rows]
+            return items, total
+
+    def get_by_code(self, scheme_code: str) -> SchemeDetailResponse | None:
         """Retrieve complete scheme details by its unique canonical code."""
         with get_db_connection(self.db_path) as conn:
             cursor = conn.cursor()
@@ -166,7 +229,51 @@ class SchemeRepository:
             scheme_id = row["id"]
             return self._build_scheme_detail(conn, row, scheme_id)
 
-    def get_by_id(self, scheme_id: str) -> Optional[SchemeDetailResponse]:
+    ALIAS_MAP: ClassVar[dict[str, str]] = {
+        "pm_jay": "ayushman_bharat_pm_jay",
+        "pmjay": "ayushman_bharat_pm_jay",
+        "pm-jay": "ayushman_bharat_pm_jay",
+        "pmay_u": "pmay_urban",
+        "pmayu": "pmay_urban",
+        "pmay-u": "pmay_urban",
+        "pmay_g": "pmay_gramin",
+        "pmayg": "pmay_gramin",
+        "pmay-g": "pmay_gramin",
+        "pmkisan": "pm_kisan",
+        "pm-kisan": "pm_kisan",
+    }
+
+    def _resolve_scheme_id(self, conn: Any, identifier: str) -> str | None:
+        """Find internal scheme UUID from scheme_code, UUID, or known alias."""
+        cursor = conn.cursor()
+        cursor.execute("SELECT id FROM schemes WHERE scheme_code = ? OR id = ?", (identifier, identifier))
+        row = cursor.fetchone()
+        if row:
+            return row["id"]
+        normalized = identifier.strip().lower().replace("-", "_")
+        canonical = self.ALIAS_MAP.get(normalized)
+        if canonical:
+            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (canonical,))
+            row = cursor.fetchone()
+            if row:
+                return row["id"]
+        return None
+
+    def get_by_code_or_id(self, identifier: str) -> SchemeDetailResponse | None:
+        """Retrieve scheme by scheme_code, UUID, or known alias."""
+        detail = self.get_by_code(identifier)
+        if detail:
+            return detail
+        detail = self.get_by_id(identifier)
+        if detail:
+            return detail
+        normalized = identifier.strip().lower().replace("-", "_")
+        canonical = self.ALIAS_MAP.get(normalized)
+        if canonical:
+            return self.get_by_code(canonical)
+        return None
+
+    def get_by_id(self, scheme_id: str) -> SchemeDetailResponse | None:
         """Retrieve complete scheme details by UUID."""
         with get_db_connection(self.db_path) as conn:
             cursor = conn.cursor()
@@ -238,17 +345,15 @@ class SchemeRepository:
         )
 
     def get_rules(
-        self, scheme_code: str, rule_purpose: Optional[str] = None
-    ) -> List[SchemeRuleResponse]:
+        self, scheme_code: str, rule_purpose: str | None = None
+    ) -> list[SchemeRuleResponse]:
         """Retrieve rules for a scheme, optionally filtered by rule_purpose ('eligibility' or 'exclusion')."""
         with get_db_connection(self.db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (scheme_code,))
-            s_row = cursor.fetchone()
-            if not s_row:
+            scheme_id = self._resolve_scheme_id(conn, scheme_code)
+            if not scheme_id:
                 return []
 
-            scheme_id = s_row["id"]
+            cursor = conn.cursor()
             if rule_purpose:
                 cursor.execute(
                     "SELECT * FROM scheme_rules WHERE scheme_id = ? AND rule_purpose = ? ORDER BY rule_group, field",
@@ -264,20 +369,18 @@ class SchemeRepository:
     def get_documents(
         self,
         scheme_code: str,
-        document_type: Optional[str] = None,
-        is_mandatory: Optional[bool] = None,
-    ) -> List[SchemeDocumentResponse]:
+        document_type: str | None = None,
+        is_mandatory: bool | None = None,
+    ) -> list[SchemeDocumentResponse]:
         """Retrieve documents for a scheme with optional type and mandatory filters."""
         with get_db_connection(self.db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (scheme_code,))
-            s_row = cursor.fetchone()
-            if not s_row:
+            scheme_id = self._resolve_scheme_id(conn, scheme_code)
+            if not scheme_id:
                 return []
 
-            scheme_id = s_row["id"]
+            cursor = conn.cursor()
             query = "SELECT * FROM scheme_documents WHERE scheme_id = ?"
-            params: List[Any] = [scheme_id]
+            params: list[Any] = [scheme_id]
 
             if document_type:
                 query += " AND document_type = ?"
@@ -290,16 +393,14 @@ class SchemeRepository:
             cursor.execute(query, params)
             return [self._map_document(r) for r in cursor.fetchall()]
 
-    def get_tutorial_steps(self, scheme_code: str) -> List[TutorialStepResponse]:
+    def get_tutorial_steps(self, scheme_code: str) -> list[TutorialStepResponse]:
         """Retrieve ordered tutorial steps for a scheme."""
         with get_db_connection(self.db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (scheme_code,))
-            s_row = cursor.fetchone()
-            if not s_row:
+            scheme_id = self._resolve_scheme_id(conn, scheme_code)
+            if not scheme_id:
                 return []
 
-            scheme_id = s_row["id"]
+            cursor = conn.cursor()
             cursor.execute(
                 "SELECT * FROM tutorial_steps WHERE scheme_id = ? ORDER BY step_number ASC",
                 (scheme_id,),
@@ -307,19 +408,17 @@ class SchemeRepository:
             return [self._map_tutorial_step(r) for r in cursor.fetchall()]
 
     def get_profile_fields(
-        self, scheme_code: str, is_required: Optional[bool] = None
-    ) -> List[SchemeProfileFieldResponse]:
+        self, scheme_code: str, is_required: bool | None = None
+    ) -> list[SchemeProfileFieldResponse]:
         """Retrieve profile fields required/evaluated by a scheme."""
         with get_db_connection(self.db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (scheme_code,))
-            s_row = cursor.fetchone()
-            if not s_row:
+            scheme_id = self._resolve_scheme_id(conn, scheme_code)
+            if not scheme_id:
                 return []
 
-            scheme_id = s_row["id"]
+            cursor = conn.cursor()
             query = "SELECT * FROM scheme_profile_fields WHERE scheme_id = ?"
-            params: List[Any] = [scheme_id]
+            params: list[Any] = [scheme_id]
 
             if is_required is not None:
                 query += " AND is_required = ?"
@@ -329,16 +428,14 @@ class SchemeRepository:
             cursor.execute(query, params)
             return [self._map_profile_field(r) for r in cursor.fetchall()]
 
-    def get_verification(self, scheme_code: str) -> List[SchemeVerificationResponse]:
+    def get_verification(self, scheme_code: str) -> list[SchemeVerificationResponse]:
         """Retrieve verification records and contact info for a scheme."""
         with get_db_connection(self.db_path) as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT id FROM schemes WHERE scheme_code = ?", (scheme_code,))
-            s_row = cursor.fetchone()
-            if not s_row:
+            scheme_id = self._resolve_scheme_id(conn, scheme_code)
+            if not scheme_id:
                 return []
 
-            scheme_id = s_row["id"]
+            cursor = conn.cursor()
             cursor.execute(
                 "SELECT * FROM scheme_verification WHERE scheme_id = ? ORDER BY last_verified_at DESC",
                 (scheme_id,),
