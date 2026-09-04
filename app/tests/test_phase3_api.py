@@ -27,8 +27,10 @@ import uuid
 import pytest
 from fastapi.testclient import TestClient
 
+from app.api.deps import get_current_user
 from app.db.session import init_db
 from app.main import app
+from app.schemas.auth import AuthenticatedUser
 
 client = TestClient(app)
 
@@ -37,6 +39,8 @@ client = TestClient(app)
 def setup_database():
     """Ensure database schema and seed data are initialized before each test."""
     init_db()
+    yield
+    app.dependency_overrides.clear()
 
 
 # =====================================================================
@@ -46,8 +50,10 @@ def setup_database():
 def test_01_post_profile():
     """Test POST /profile creates a new profile and strips sensitive fields."""
     user_id = f"test_user_{uuid.uuid4().hex[:8]}"
+    app.dependency_overrides[get_current_user] = lambda: AuthenticatedUser(
+        id=user_id, email=f"{user_id}@example.com"
+    )
     payload = {
-        "user_id": user_id,
         "age": 34,
         "state": "Uttar Pradesh",
         "gender": "male",
@@ -74,18 +80,20 @@ def test_01_post_profile():
 
 
 def test_02_get_profile():
-    """Test GET /profile retrieves stored profile."""
+    """Test GET /profile retrieves stored profile for authenticated user."""
     user_id = f"test_user_{uuid.uuid4().hex[:8]}"
+    app.dependency_overrides[get_current_user] = lambda: AuthenticatedUser(
+        id=user_id, email=f"{user_id}@example.com"
+    )
     # Create profile first
     client.post("/profile", json={
-        "user_id": user_id,
         "age": 28,
         "state": "Bihar",
         "category": "OBC"
     })
 
     # Retrieve profile
-    response = client.get(f"/profile?user_id={user_id}")
+    response = client.get("/profile")
     assert response.status_code == 200
     data = response.json()
     assert data["user_id"] == user_id
@@ -98,9 +106,11 @@ def test_02_get_profile():
 def test_03_put_profile():
     """Test PUT /profile updates an existing profile without wiping fields."""
     user_id = f"test_user_{uuid.uuid4().hex[:8]}"
+    app.dependency_overrides[get_current_user] = lambda: AuthenticatedUser(
+        id=user_id, email=f"{user_id}@example.com"
+    )
     # Create
     client.post("/profile", json={
-        "user_id": user_id,
         "age": 40,
         "state": "Maharashtra",
         "occupation": "artisan",
@@ -109,7 +119,6 @@ def test_03_put_profile():
 
     # Partial update
     update_payload = {
-        "user_id": user_id,
         "annual_income": 95000.0,
         "attributes": {"new_flag": "yes"}
     }
@@ -130,13 +139,17 @@ def test_03_put_profile():
 def test_04_missing_profile_returns_404():
     """Test GET and PUT return 404 when profile does not exist."""
     non_existent = "non_existent_user_99999"
-    get_res = client.get(f"/profile?user_id={non_existent}")
+    app.dependency_overrides[get_current_user] = lambda: AuthenticatedUser(
+        id=non_existent, email=f"{non_existent}@example.com"
+    )
+    get_res = client.get("/profile")
     assert get_res.status_code == 404
     assert "Profile not found" in get_res.json()["detail"]
 
-    put_res = client.put("/profile", json={"user_id": non_existent, "age": 50})
+    put_res = client.put("/profile", json={"age": 50})
     assert put_res.status_code == 404
     assert "Profile not found" in put_res.json()["detail"]
+
 
 
 # =====================================================================

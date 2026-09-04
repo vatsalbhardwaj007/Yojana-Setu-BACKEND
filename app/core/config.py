@@ -31,6 +31,12 @@ class Settings(BaseSettings):
     DATABASE_URL: str = ""
     SQLITE_DB_PATH: str = str(PROJECT_ROOT / "data" / "yojanasetu.db")
 
+    # Authentication & Supabase JWT Configuration
+    SUPABASE_JWT_SECRET: str = ""
+    JWT_ALGORITHM: str = "HS256"
+    JWT_AUDIENCE: str = "authenticated"
+
+
     # CORS Configuration
     CORS_ORIGINS: list[str] | str = ["*"]
 

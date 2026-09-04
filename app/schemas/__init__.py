@@ -1,3 +1,7 @@
+from app.schemas.auth import (
+    AuthenticatedUser,
+    UserMeResponse,
+)
 from app.schemas.catalog import (
     RecommendationRequest,
     RecommendationResponse,
@@ -42,6 +46,7 @@ from app.schemas.scheme import (
 )
 
 __all__ = [
+    "AuthenticatedUser",
     "DocumentType",
     "EligibilityCheckRequest",
     "EligibilityCheckResponse",
@@ -75,5 +80,7 @@ __all__ = [
     "SchemeVerificationResponse",
     "TutorialStepBase",
     "TutorialStepResponse",
+    "UserMeResponse",
     "VerificationMethod",
 ]
+
