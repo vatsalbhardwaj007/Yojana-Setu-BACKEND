@@ -79,7 +79,7 @@ async def webhook_receive(request: Request):
 async def _process_and_reply(sender: str, text: str) -> None:
     """Process message and send reply. Runs as a background task."""
     try:
-        reply_text = handle_message(sender, text)
+        reply_text = await handle_message(sender, text)
         await _send_whatsapp_message(sender, reply_text)
     except Exception:
         logger.exception("Failed to process message for sender=%s", sender[:4] + "****")
