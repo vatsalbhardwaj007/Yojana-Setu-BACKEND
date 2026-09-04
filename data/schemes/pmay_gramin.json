@@ -1,0 +1,434 @@
+{
+  "scheme_code": "pmay_gramin",
+  "name": "Pradhan Mantri Awaas Yojana - Gramin",
+  "description": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G) is a flagship rural housing scheme of the Ministry of Rural Development that aims to provide pucca houses with basic amenities to eligible rural households. The eligible universe is determined through SECC data and comprises houseless households and households living in zero, one, or two-room houses with kutcha walls and kutcha roofs, subject to a defined exclusion process.",
+  "ministry": "Ministry of Rural Development",
+  "department": "Ministry of Rural Development",
+  "scheme_type": "housing",
+  "status": "active",
+  "effective_from": "2016-04-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMAY-G",
+    "PMAY Gramin",
+    "Pradhan Mantri Awaas Yojana Gramin"
+  ],
+  "target_groups": [
+    "houseless rural households",
+    "households living in kutcha houses",
+    "households living in dilapidated houses",
+    "SC/ST households",
+    "minority households",
+    "persons with disabilities",
+    "other eligible rural households"
+  ],
+  "tags": [
+    "Financial Assistance",
+    "Housing",
+    "Loan",
+    "Rural Development"
+  ],
+  "benefits": [
+    "Financial assistance of ₹1,20,000 per unit for plain areas.",
+    "Financial assistance of ₹1,30,000 per unit for hilly areas, difficult areas and IAP districts, including Himalayan states, North-Eastern states and UT of Jammu & Kashmir.",
+    "Willing beneficiaries can avail institutional finance up to ₹70,000 at 3% lower interest rate.",
+    "Maximum principal amount for which subsidy can be sought is ₹2,00,000.",
+    "Minimum house size 25 sq m including dedicated hygienic cooking area.",
+    "Up to ₹12,000 assistance for toilets through convergence with SBM-G.",
+    "MGNREGA convergence: employment as unskilled labour at ₹90.95/day for 95 days as stated by the supplied source.",
+    "One LPG connection per house through PM Ujjwala convergence.",
+    "Convergence for piped drinking water, electricity, clean and efficient cooking fuel and waste management.",
+    "Electronic payments directly to Aadhaar-linked bank/post-office accounts."
+  ],
+  "official_url": "https://pmayg.dord.gov.in/netiayHome/home.aspx",
+  "rules": [
+    {
+      "rule_group": "entitlement",
+      "field": "meets_pmay_g_entitlement_criteria",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant household must be part of the eligible universe as determined through SECC data. The eligible universe consists of houseless households and households living in zero, one, or two-room houses with kutcha walls and kutcha roofs, subject to the defined exclusion process. Automatic or compulsory inclusion covers: (1) households without shelter, (2) destitute or living on alms, (3) manual scavengers, (4) primitive tribal groups, and (5) legally released bonded labourers. Deprivation and prioritisation criteria — including no adult member between 16 and 59, female-headed household with no adult male member between 16 and 59, no literate adult above 25, disabled member with no able-bodied adult, and landless household deriving major income from manual casual labour — are used for prioritisation and not as mandatory AND eligibility rules."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "vehicle_ownership",
+      "field": "owns_motorised_two_three_four_wheeler_or_fishing_boat",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning a motorised two, three, or four-wheeler or a fishing boat are excluded."
+    },
+    {
+      "rule_group": "farm_equipment",
+      "field": "owns_mechanised_three_four_wheeler_agricultural_equipment",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning mechanised three- or four-wheeler agricultural equipment are excluded."
+    },
+    {
+      "rule_group": "kisan_credit",
+      "field": "has_kisan_credit_card_limit_at_least_50000",
+      "operator": "=",
+      "value": true,
+      "description": "Households having a Kisan credit card with a credit limit of ₹50,000 or more are excluded."
+    },
+    {
+      "rule_group": "government_employment",
+      "field": "has_government_employee_in_household",
+      "operator": "=",
+      "value": true,
+      "description": "Households with a government employee are excluded."
+    },
+    {
+      "rule_group": "government_enterprise",
+      "field": "has_government_registered_non_agricultural_enterprise",
+      "operator": "=",
+      "value": true,
+      "description": "Households with a government-registered non-agricultural enterprise are excluded."
+    },
+    {
+      "rule_group": "income",
+      "field": "has_family_member_earning_above_10000_monthly",
+      "operator": "=",
+      "value": true,
+      "description": "Households with a family member earning above ₹10,000 monthly are excluded."
+    },
+    {
+      "rule_group": "income_tax",
+      "field": "pays_income_tax",
+      "operator": "=",
+      "value": true,
+      "description": "Households that pay income tax are excluded."
+    },
+    {
+      "rule_group": "professional_tax",
+      "field": "pays_professional_tax",
+      "operator": "=",
+      "value": true,
+      "description": "Households that pay professional tax are excluded."
+    },
+    {
+      "rule_group": "household_assets",
+      "field": "owns_refrigerator",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning a refrigerator are excluded."
+    },
+    {
+      "rule_group": "household_assets",
+      "field": "owns_landline_phone",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning a landline phone are excluded."
+    },
+    {
+      "rule_group": "agricultural_land",
+      "field": "owns_at_least_2_5_acres_irrigated_land_with_irrigation_equipment",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning at least 2.5 acres of irrigated land with irrigation equipment are excluded."
+    },
+    {
+      "rule_group": "agricultural_land",
+      "field": "owns_at_least_5_acres_irrigated_land_for_two_or_more_crop_seasons",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning at least 5 acres of irrigated land used for two or more crop seasons are excluded."
+    },
+    {
+      "rule_group": "agricultural_land",
+      "field": "owns_at_least_7_5_acres_land_with_irrigation_equipment",
+      "operator": "=",
+      "value": true,
+      "description": "Households owning at least 7.5 acres of land with irrigation equipment are excluded."
+    },
+    {
+      "rule_group": "housing_quality",
+      "field": "lives_in_pucca_house",
+      "operator": "=",
+      "value": true,
+      "description": "Households living in a house with pucca walls and/or pucca roof are excluded."
+    },
+    {
+      "rule_group": "housing_quality",
+      "field": "lives_in_more_than_2_room_house",
+      "operator": "=",
+      "value": true,
+      "description": "Households living in a house with more than 2 rooms are excluded."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar number and self-attested Aadhaar copy",
+      "is_mandatory": true,
+      "description": "Aadhaar number and a self-attested copy of the Aadhaar card."
+    },
+    {
+      "document_type": "other",
+      "document_name": "MGNREGA Job Card",
+      "is_mandatory": true,
+      "description": "MGNREGA Job Card for convergence with employment guarantee."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Bank account details",
+      "is_mandatory": true,
+      "description": "Bank account details for direct benefit transfer."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Swachh Bharat Mission (SBM) number",
+      "is_mandatory": true,
+      "description": "SBM number for convergence with toilet construction assistance."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Affidavit stating beneficiary/family members do not own a pucca house",
+      "is_mandatory": true,
+      "description": "Affidavit or declaration that the beneficiary and family members do not own a pucca house."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit official PMAY-G website",
+      "description": "Visit the official PMAY-G website or login to the PMAY-G portal."
+    },
+    {
+      "step_number": 2,
+      "title": "Fill personal details",
+      "description": "Fill personal details including gender, mobile number and Aadhaar."
+    },
+    {
+      "step_number": 3,
+      "title": "Upload Aadhaar consent form",
+      "description": "Upload the Aadhaar consent form as part of the registration process."
+    },
+    {
+      "step_number": 4,
+      "title": "Search for beneficiary",
+      "description": "Search for beneficiary name, PMAY ID and priority in the system."
+    },
+    {
+      "step_number": 5,
+      "title": "Select to register",
+      "description": "Select the 'Select to Register' option for the identified beneficiary."
+    },
+    {
+      "step_number": 6,
+      "title": "Review beneficiary details",
+      "description": "Review the automatically generated beneficiary details for accuracy."
+    },
+    {
+      "step_number": 7,
+      "title": "Fill remaining beneficiary details",
+      "description": "Fill remaining beneficiary details such as ownership type and relation."
+    },
+    {
+      "step_number": 8,
+      "title": "Upload Aadhaar consent on behalf of beneficiary",
+      "description": "Upload Aadhaar consent form on behalf of beneficiary where required."
+    },
+    {
+      "step_number": 9,
+      "title": "Enter bank account details",
+      "description": "Enter bank account details for direct benefit transfer of the housing assistance."
+    },
+    {
+      "step_number": 10,
+      "title": "Select loan if desired",
+      "description": "If desired, select loan option and enter the required loan amount."
+    },
+    {
+      "step_number": 11,
+      "title": "Enter MGNREGA and SBM numbers",
+      "description": "Enter MGNREGA Job Card number and SBM number for convergence benefits."
+    },
+    {
+      "step_number": 12,
+      "title": "Office completes final section",
+      "description": "The concerned office completes the final section of the registration."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "meets_pmay_g_entitlement_criteria",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household is part of the eligible universe as determined through SECC data, comprising houseless households and households living in kutcha houses with kutcha walls and roofs."
+    },
+    {
+      "field_name": "owns_motorised_two_three_four_wheeler_or_fishing_boat",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a motorised two, three, or four-wheeler or a fishing boat."
+    },
+    {
+      "field_name": "owns_mechanised_three_four_wheeler_agricultural_equipment",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns mechanised three- or four-wheeler agricultural equipment."
+    },
+    {
+      "field_name": "has_kisan_credit_card_limit_at_least_50000",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household has a Kisan credit card with a credit limit of ₹50,000 or more."
+    },
+    {
+      "field_name": "has_government_employee_in_household",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household has a government employee."
+    },
+    {
+      "field_name": "has_government_registered_non_agricultural_enterprise",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household has a government-registered non-agricultural enterprise."
+    },
+    {
+      "field_name": "has_family_member_earning_above_10000_monthly",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household has a family member earning above ₹10,000 monthly."
+    },
+    {
+      "field_name": "pays_income_tax",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household pays income tax."
+    },
+    {
+      "field_name": "pays_professional_tax",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household pays professional tax."
+    },
+    {
+      "field_name": "owns_refrigerator",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a refrigerator."
+    },
+    {
+      "field_name": "owns_landline_phone",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a landline phone."
+    },
+    {
+      "field_name": "owns_at_least_2_5_acres_irrigated_land_with_irrigation_equipment",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns at least 2.5 acres of irrigated land with irrigation equipment."
+    },
+    {
+      "field_name": "owns_at_least_5_acres_irrigated_land_for_two_or_more_crop_seasons",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns at least 5 acres of irrigated land used for two or more crop seasons."
+    },
+    {
+      "field_name": "owns_at_least_7_5_acres_land_with_irrigation_equipment",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns at least 7.5 acres of land with irrigation equipment."
+    },
+    {
+      "field_name": "lives_in_pucca_house",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household lives in a house with pucca walls and/or pucca roof."
+    },
+    {
+      "field_name": "lives_in_more_than_2_room_house",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household lives in a house with more than 2 rooms."
+    },
+    {
+      "field_name": "gender",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Gender of the applicant as requested during PMAY-G registration."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant as requested during PMAY-G registration."
+    },
+    {
+      "field_name": "aadhaar_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether Aadhaar number is available; Aadhaar is mandatory for eligible beneficiaries."
+    },
+    {
+      "field_name": "bank_account_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether a bank account is available for direct benefit transfer."
+    },
+    {
+      "field_name": "mgnrega_job_card_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether an MGNREGA Job Card is available for convergence with employment guarantee."
+    },
+    {
+      "field_name": "sbm_number_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether an SBM number is available for convergence with toilet construction assistance."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility, exclusion criteria, application process and documents were curated from the supplied myScheme PMAY-G content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmayg.dord.gov.in/netiayHome/home.aspx",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official PMAY-G website supplied as the official source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmayg.dord.gov.in/netiayHome/Uploaded/Guidelines-English_Book_Final.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official PMAY-G English guidelines supplied by the source."
+    }
+  ]
+}

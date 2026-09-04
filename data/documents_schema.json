@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SchemeDocument",
+  "description": "Document required or recommended for a scheme application.",
+  "type": "object",
+  "required": ["document_type", "document_name", "is_mandatory"],
+  "properties": {
+    "document_type": {
+      "type": "string",
+      "enum": ["identity_proof", "address_proof", "income_proof", "category_certificate", "age_proof", "land_record", "bank_details", "photograph", "declaration", "other"],
+      "description": "Standardized document category"
+    },
+    "document_name": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Official or common name of the document"
+    },
+    "is_mandatory": {
+      "type": "boolean",
+      "description": "Whether the document is mandatory or recommended"
+    },
+    "description": {
+      "type": "string",
+      "description": "Additional context about this document requirement"
+    }
+  },
+  "additionalProperties": false
+}

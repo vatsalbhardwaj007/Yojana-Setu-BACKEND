@@ -1,0 +1,280 @@
+{
+  "scheme_code": "atal_pension_yojana",
+  "name": "Atal Pension Yojana",
+  "description": "Atal Pension Yojana (APY) is an old age income security scheme for savings account holders in the age group of 18-40 years who are not income-tax payees. The scheme addresses longevity risks among workers in the unorganized sector and encourages voluntary retirement savings.",
+  "ministry": "Ministry of Finance",
+  "department": "Department of Financial Services",
+  "scheme_type": "pension",
+  "status": "active",
+  "effective_from": "2015-05-09",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "APY",
+    "Atal Pension Yojana"
+  ],
+  "target_groups": [
+    "Unorganized workers",
+    "Poor and under-privileged workers",
+    "Savings account holders"
+  ],
+  "tags": [
+    "Bank Account Holders",
+    "Pension",
+    "Unorganized Workers",
+    "Retirement",
+    "Social Security"
+  ],
+  "benefits": [
+    "Guaranteed minimum pension of ₹1,000 per month after attaining 60 years.",
+    "Guaranteed minimum pension of ₹2,000 per month after attaining 60 years.",
+    "Guaranteed minimum pension of ₹3,000 per month after attaining 60 years.",
+    "Guaranteed minimum pension of ₹4,000 per month after attaining 60 years.",
+    "Guaranteed minimum pension of ₹5,000 per month after attaining 60 years.",
+    "After the subscriber's death, the spouse is entitled to receive the same pension amount until the spouse's death.",
+    "After both subscriber and spouse die, the nominee is entitled to receive the accumulated pension wealth.",
+    "Contributions are eligible for tax benefits similar to NPS under section 80CCD(1).",
+    "In voluntary exit before 60, contributions plus net actual accrued income may be refunded after applicable account maintenance charges, subject to the source's stated conditions.",
+    "In case of death before 60, the spouse may continue the APY account for the remaining vesting period or the accumulated pension corpus may be returned to the spouse or nominee, according to the available options."
+  ],
+  "official_url": "https://jansuraksha.gov.in/",
+  "rules": [
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": ">=",
+      "value": 18,
+      "description": "Minimum age of joining APY is 18 years."
+    },
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": "<=",
+      "value": 40,
+      "description": "Maximum age of joining APY is 40 years."
+    },
+    {
+      "rule_group": "account",
+      "field": "has_savings_bank_or_post_office_account",
+      "operator": "=",
+      "value": true,
+      "description": "APY is for savings account holders; contributions are made through auto-debit from the subscriber's savings bank account."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "income_tax",
+      "field": "is_or_has_been_income_tax_payer",
+      "operator": "=",
+      "value": true,
+      "description": "From 1 October 2022, any citizen who is or has been an income tax payer is not eligible to join APY."
+    }
+  ],
+  "documents": [],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Login to internet banking",
+      "description": "Login to the applicant's internet banking account."
+    },
+    {
+      "step_number": 2,
+      "title": "Search for APY",
+      "description": "Search for Atal Pension Yojana on the banking dashboard."
+    },
+    {
+      "step_number": 3,
+      "title": "Fill basic and nominee details",
+      "description": "Fill in basic details and nominee details."
+    },
+    {
+      "step_number": 4,
+      "title": "Give consent for auto-debit",
+      "description": "Give consent for auto-debit of the prescribed contribution amount."
+    },
+    {
+      "step_number": 5,
+      "title": "Submit the form",
+      "description": "Submit the APY registration form."
+    },
+    {
+      "step_number": 6,
+      "title": "Visit eNPS portal",
+      "description": "Visit https://enps.nsdl.com/eNPS/NationalPensionSystem.html."
+    },
+    {
+      "step_number": 7,
+      "title": "Select Atal Pension Yojana",
+      "description": "Select 'Atal Pension Yojana' from the available options."
+    },
+    {
+      "step_number": 8,
+      "title": "Select APY Registration",
+      "description": "Select 'APY Registration' to begin the registration process."
+    },
+    {
+      "step_number": 9,
+      "title": "Fill basic details",
+      "description": "Fill in basic details as required."
+    },
+    {
+      "step_number": 10,
+      "title": "Complete KYC",
+      "description": "Complete KYC using one of the three options: Offline KYC using Aadhaar XML, Aadhaar OTP verification on the mobile number registered with Aadhaar, or Virtual ID."
+    },
+    {
+      "step_number": 11,
+      "title": "Record acknowledgement number",
+      "description": "After basic details are completed, record the generated acknowledgement number."
+    },
+    {
+      "step_number": 12,
+      "title": "Fill personal details",
+      "description": "Fill in personal details."
+    },
+    {
+      "step_number": 13,
+      "title": "Select desired pension amount",
+      "description": "Select the desired pension amount after age 60."
+    },
+    {
+      "step_number": 14,
+      "title": "Select contribution frequency",
+      "description": "Select contribution frequency: monthly, quarterly, or half-yearly."
+    },
+    {
+      "step_number": 15,
+      "title": "Fill nominee details",
+      "description": "Fill in nominee details."
+    },
+    {
+      "step_number": 16,
+      "title": "Confirm details",
+      "description": "Confirm personal details and nominee details."
+    },
+    {
+      "step_number": 17,
+      "title": "Continue to eSign",
+      "description": "Continue to eSign on the NSDL website."
+    },
+    {
+      "step_number": 18,
+      "title": "Complete Aadhaar OTP verification",
+      "description": "Complete Aadhaar OTP verification to finalize registration."
+    },
+    {
+      "step_number": 19,
+      "title": "Registration completed",
+      "description": "APY registration is completed. Citizens may also join digitally through the e-APY portal or through web portals of banks providing such facility."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "applicant_age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant in years."
+    },
+    {
+      "field_name": "has_savings_bank_or_post_office_account",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant has a savings bank or post office account."
+    },
+    {
+      "field_name": "is_or_has_been_income_tax_payer",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is or has been an income tax payer."
+    },
+    {
+      "field_name": "contribution_frequency",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["monthly", "quarterly", "half_yearly"],
+      "description": "Frequency of contribution: monthly, quarterly, or half-yearly."
+    },
+    {
+      "field_name": "desired_monthly_pension",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["1000", "2000", "3000", "4000", "5000"],
+      "description": "Desired guaranteed minimum monthly pension amount after attaining 60 years."
+    },
+    {
+      "field_name": "auto_debit_consent",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has given consent for auto-debit of the prescribed contribution."
+    },
+    {
+      "field_name": "aadhaar_kyc_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Aadhaar-based KYC is available for registration."
+    },
+    {
+      "field_name": "aadhaar_mobile_otp_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Aadhaar OTP verification on the registered mobile number is available."
+    },
+    {
+      "field_name": "virtual_id_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Virtual ID is available for KYC."
+    },
+    {
+      "field_name": "nominee_details_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether nominee details are available for the APY account."
+    },
+    {
+      "field_name": "acknowledgement_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Acknowledgement number generated after completing basic details during eNPS registration."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for communication and Aadhaar OTP verification."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme APY content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://jansuraksha.gov.in/Files/APY/ENGLISH/APY.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Jan Suraksha APY scheme guidelines referenced from the supplied source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://enps.nsdl.com/eNPS/NationalPensionSystem.html",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "eNPS / National Pension System portal for online APY registration referenced from the supplied source."
+    }
+  ]
+}

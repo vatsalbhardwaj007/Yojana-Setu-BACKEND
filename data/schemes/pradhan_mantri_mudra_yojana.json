@@ -1,0 +1,385 @@
+{
+  "scheme_code": "pradhan_mantri_mudra_yojana",
+  "name": "Pradhan Mantri Mudra Yojana",
+  "description": "Pradhan Mantri Mudra Yojana (PMMY) is a flagship Government of India scheme facilitating micro credit or loans up to ₹20 lakh to income-generating micro enterprises in the non-farm sector, including manufacturing, trading, services and activities allied to agriculture such as poultry, dairy and beekeeping. Loans are provided through eligible Member Lending Institutions including public sector banks, private sector banks, state-operated cooperative banks, regional rural banks, MFIs, NBFCs, small finance banks and other approved financial intermediaries.",
+  "ministry": "Ministry of Finance",
+  "department": "Department of Financial Services",
+  "scheme_type": "loan_guarantee",
+  "status": "active",
+  "effective_from": "2015-04-08",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMMY",
+    "Pradhan Mantri Mudra Yojana",
+    "MUDRA"
+  ],
+  "target_groups": [
+    "Micro entrepreneurs",
+    "Small business owners",
+    "Manufacturing units",
+    "Trading enterprises",
+    "Service providers",
+    "Agriculture-allied activity operators"
+  ],
+  "tags": [
+    "Business",
+    "Loan",
+    "MUDRA",
+    "Micro Enterprise",
+    "Entrepreneurship",
+    "Manufacturing",
+    "Trading",
+    "Services"
+  ],
+  "benefits": [
+    "Shishu loans covering loans up to ₹50,000.",
+    "Kishore loans above ₹50,000 and up to ₹5 lakh.",
+    "Tarun loans above ₹5 lakh and up to ₹10 lakh.",
+    "Tarun Plus loans up to ₹20 lakh for entrepreneurs who have successfully repaid previous loans under the Tarun category.",
+    "Interest rates are determined by Member Lending Institutions according to applicable RBI guidelines.",
+    "Upfront fee or processing charges for Shishu loans are waived by most banks according to the supplied source."
+  ],
+  "official_url": "https://www.mudra.org.in/",
+  "rules": [
+    {
+      "rule_group": "borrower",
+      "field": "is_eligible_pmmy_borrower_entity",
+      "operator": "=",
+      "value": true,
+      "description": "Eligible borrowers listed in the source include individuals, proprietary concerns, partnership firms, private limited companies, public companies and other legal forms."
+    },
+    {
+      "rule_group": "activity",
+      "field": "is_income_generating_non_farm_micro_enterprise",
+      "operator": "=",
+      "value": true,
+      "description": "The proposed activity must be an income-generating micro enterprise in the non-farm sector, including manufacturing, trading, services or activities allied to agriculture such as poultry, dairy and beekeeping."
+    },
+    {
+      "rule_group": "credit_history",
+      "field": "has_satisfactory_credit_track_record",
+      "operator": "=",
+      "value": true,
+      "description": "The applicant should not be a defaulter to any bank or financial institution and should have a satisfactory credit track record."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "credit_default",
+      "field": "is_defaulter_to_bank_or_financial_institution",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant should not be a defaulter to any bank or financial institution."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Proof of Identity",
+      "is_mandatory": true,
+      "description": "Proof of identity. Required for Shishu, Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Proof of Residence",
+      "is_mandatory": true,
+      "description": "Proof of residence. Required for Shishu, Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "photograph",
+      "document_name": "Applicant recent coloured photograph",
+      "is_mandatory": true,
+      "description": "Recent coloured photograph of the applicant. Required for Shishu, Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Quotation of machinery or other items to be purchased",
+      "is_mandatory": true,
+      "description": "Quotation of machinery or other items to be purchased. Required for Shishu loan category."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Supplier name, details of machinery and price",
+      "is_mandatory": true,
+      "description": "Supplier name, details of machinery and price of machinery or items. Required for Shishu loan category."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Proof of Identity or Address of Business Enterprise",
+      "is_mandatory": true,
+      "description": "Proof of identity or address of business enterprise. Required for Shishu, Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Bank or financial institution non-default status certificate",
+      "is_mandatory": true,
+      "description": "Bank or financial institution certificate confirming non-default status. Required for Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Statement of accounts for the last six months",
+      "is_mandatory": false,
+      "description": "Statement of accounts for the last six months, where an existing banker is involved. Required for Kishore, Tarun and Tarun Plus loan categories where an existing banker is involved."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Last two years balance sheets with income tax or sales tax returns",
+      "is_mandatory": false,
+      "description": "Last two years balance sheets with income tax or sales tax returns. Applicable for cases from ₹2 lakh and above in Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Projected balance sheets",
+      "is_mandatory": false,
+      "description": "Projected balance sheets. Applicable for relevant working-capital or term-loan cases in Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Sales achieved during the current financial year",
+      "is_mandatory": false,
+      "description": "Sales achieved during the current financial year up to the application date. Required for Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Project report containing technical and economic viability",
+      "is_mandatory": true,
+      "description": "Project report containing technical and economic viability. Required for Kishore, Tarun and Tarun Plus loan categories."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Memorandum and Articles of Association or Partnership Deed",
+      "is_mandatory": false,
+      "description": "Memorandum and Articles of Association or Partnership Deed as applicable. Required for Kishore, Tarun and Tarun Plus loan categories where applicable."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Asset and Liability statement",
+      "is_mandatory": false,
+      "description": "Asset and Liability statement where third-party guarantee is absent and required to assess net worth. Required for Kishore, Tarun and Tarun Plus loan categories where applicable."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit the official PM MUDRA website",
+      "description": "Visit the official PM MUDRA website at https://www.mudra.org.in/."
+    },
+    {
+      "step_number": 2,
+      "title": "Select the Udyamimitra portal",
+      "description": "Select the Udyamimitra portal at https://udyamimitra.in/."
+    },
+    {
+      "step_number": 3,
+      "title": "Click Mudra loan and Apply Now",
+      "description": "Click 'Mudra loan' and then 'Apply Now'."
+    },
+    {
+      "step_number": 4,
+      "title": "Select entrepreneur type",
+      "description": "Select one of: New entrepreneur, Existing Entrepreneur, or Self-employed professional."
+    },
+    {
+      "step_number": 5,
+      "title": "Enter applicant details and verify OTP",
+      "description": "Enter applicant name, email and mobile number and generate OTP."
+    },
+    {
+      "step_number": 6,
+      "title": "Fill personal and professional details",
+      "description": "After successful registration, fill personal details and professional details."
+    },
+    {
+      "step_number": 7,
+      "title": "Select hand-holding agency or Loan Application Center",
+      "description": "Select a hand-holding agency if help is required for preparing project proposals; otherwise select 'Loan Application Center'."
+    },
+    {
+      "step_number": 8,
+      "title": "Select the required loan category",
+      "description": "Select the required loan category: Mudra Shishu, Mudra Kishore, or Mudra Tarun."
+    },
+    {
+      "step_number": 9,
+      "title": "Fill business information",
+      "description": "Fill business information including business name and business activity."
+    },
+    {
+      "step_number": 10,
+      "title": "Select the industry type",
+      "description": "Select the industry type: Manufacturing, Service, Trading, or Activities allied to agriculture."
+    },
+    {
+      "step_number": 11,
+      "title": "Fill owner and financial details",
+      "description": "Fill owner details, existing banking and credit facilities, proposed credit facilities, future estimates and preferred lender."
+    },
+    {
+      "step_number": 12,
+      "title": "Attach the required documents",
+      "description": "Attach the required documents based on the selected loan category."
+    },
+    {
+      "step_number": 13,
+      "title": "Submit the application",
+      "description": "Submit the application."
+    },
+    {
+      "step_number": 14,
+      "title": "Save the Application Number",
+      "description": "Save the generated Application Number for future reference."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "borrower_entity_type",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": ["individual", "proprietary_concern", "partnership_firm", "private_limited_company", "public_company", "other_legal_form"],
+      "description": "Type of borrower entity as listed in the source."
+    },
+    {
+      "field_name": "is_eligible_pmmy_borrower_entity",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is an eligible PMMY borrower entity."
+    },
+    {
+      "field_name": "is_income_generating_non_farm_micro_enterprise",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the proposed activity is an income-generating micro enterprise in the non-farm sector."
+    },
+    {
+      "field_name": "business_activity",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Description of the business activity."
+    },
+    {
+      "field_name": "industry_type",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["manufacturing", "service", "trading", "agriculture_allied_activity"],
+      "description": "Industry type of the proposed micro enterprise."
+    },
+    {
+      "field_name": "has_satisfactory_credit_track_record",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant has a satisfactory credit track record."
+    },
+    {
+      "field_name": "is_defaulter_to_bank_or_financial_institution",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is a defaulter to any bank or financial institution."
+    },
+    {
+      "field_name": "has_relevant_skills_experience_knowledge",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has relevant skills, experience or knowledge for the proposed activity. The source states these may be required depending on the proposed activity."
+    },
+    {
+      "field_name": "loan_category",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["shishu", "kishore", "tarun", "tarun_plus"],
+      "description": "Desired loan category under PMMY."
+    },
+    {
+      "field_name": "proposed_loan_amount",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Proposed loan amount in Indian Rupees."
+    },
+    {
+      "field_name": "existing_banking_credit_facilities_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether existing banking or credit facilities information is available."
+    },
+    {
+      "field_name": "preferred_lender",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Preferred Member Lending Institution for the loan."
+    },
+    {
+      "field_name": "business_name",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Name of the business or micro enterprise."
+    },
+    {
+      "field_name": "applicant_name",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Full name of the applicant."
+    },
+    {
+      "field_name": "email",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Email address of the applicant."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant."
+    },
+    {
+      "field_name": "hand_holding_agency_required",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant requires a hand-holding agency for preparing project proposals."
+    },
+    {
+      "field_name": "project_proposal_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a project report or proposal is available."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PMMY content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.mudra.org.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "MUDRA official website referenced from the supplied source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://udyamimitra.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Udyamimitra portal for PMMY loan application referenced from the supplied source."
+    }
+  ]
+}

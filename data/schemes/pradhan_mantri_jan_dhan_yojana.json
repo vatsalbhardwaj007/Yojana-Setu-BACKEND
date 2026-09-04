@@ -1,0 +1,292 @@
+{
+  "scheme_code": "pradhan_mantri_jan_dhan_yojana",
+  "name": "Pradhan Mantri Jan Dhan Yojana",
+  "description": "Pradhan Mantri Jan Dhan Yojana (PMJDY) is a National Mission for Financial Inclusion launched across India in August 2014. The scheme aims to provide universal banking services and financial inclusion, including basic savings bank accounts, access to need-based credit, remittances, insurance and pension services. Beyond 14.08.2018, the focus shifted from opening accounts for every household to every unbanked adult.",
+  "ministry": "Ministry of Finance",
+  "department": "Department of Financial Services",
+  "scheme_type": "benefit",
+  "status": "active",
+  "effective_from": "2014-08-28",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMJDY",
+    "Pradhan Mantri Jan Dhan Yojana",
+    "Jan Dhan Yojana"
+  ],
+  "target_groups": [
+    "Unbanked adults",
+    "Indian citizens",
+    "Weaker sections",
+    "Low-income groups"
+  ],
+  "tags": [
+    "Bank",
+    "Chota Khata",
+    "Insurance",
+    "Jan Dhan",
+    "Financial Inclusion",
+    "Savings Account"
+  ],
+  "benefits": [
+    "Basic Savings Bank Deposit Account (BSBDA) with no minimum balance requirement.",
+    "Account holders can use bank branches, ATMs and Banking Correspondents for depositing and withdrawing cash.",
+    "Under the supplied source, cash withdrawal from the BSBDA is limited to four times a month.",
+    "Small Account or Chota Khata can be opened without presenting legal documents, subject to the source's stated conditions.",
+    "Small Accounts are normally valid for twelve months and can continue for another twelve months if the account holder provides a document showing that they applied for an Officially Valid Document within the first twelve months.",
+    "Free RuPay debit card with built-in accidental insurance cover of ₹2 lakh for beneficiaries.",
+    "Accounts opened before 28.08.2018 have the ₹1 lakh accidental insurance cover stated by the source.",
+    "Overdraft facility up to ₹10,000.",
+    "Banking Correspondents or Bank Mitras provide banking services including savings, deposits, payments, withdrawals and mini account statements, particularly in remote or rural areas.",
+    "PMJDY facilitates access to financial services including savings, credit, remittances, insurance and pension."
+  ],
+  "official_url": "https://pmjdy.gov.in/",
+  "rules": [
+    {
+      "rule_group": "nationality",
+      "field": "is_indian_national",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant should be an Indian National."
+    }
+  ],
+  "exclusion_rules": [],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar",
+      "is_mandatory": true,
+      "description": "Aadhaar card or Aadhaar number."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Government ID proof",
+      "is_mandatory": true,
+      "description": "Government-issued identity proof. Acceptable documents include Voter Card, PAN Card, or Ration Card."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Permanent Address Proof",
+      "is_mandatory": true,
+      "description": "Proof of permanent address. Acceptable documents include Passport, Driving License, Electricity Bill, Telephone Bill, or Water Bill."
+    },
+    {
+      "document_type": "photograph",
+      "document_name": "Passport-size Photograph",
+      "is_mandatory": true,
+      "description": "Recent passport-size photograph of the applicant."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Filled and Signed PMJDY Account Opening Form",
+      "is_mandatory": true,
+      "description": "Completed and signed PMJDY Account Opening Form downloaded from the official portal."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Any other document as notified by the Central Government",
+      "is_mandatory": false,
+      "description": "Any other document as notified by the Central Government in consultation with the Regulator."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit the official PMJDY portal",
+      "description": "Visit the official PMJDY portal at https://pmjdy.gov.in/."
+    },
+    {
+      "step_number": 2,
+      "title": "Find the Account Opening Form",
+      "description": "Under the e-documents section, find the live links for Account Opening Form."
+    },
+    {
+      "step_number": 3,
+      "title": "Select the appropriate form",
+      "description": "Select the appropriate English or Hindi form."
+    },
+    {
+      "step_number": 4,
+      "title": "Download and print the form",
+      "description": "Download the PDF and print it."
+    },
+    {
+      "step_number": 5,
+      "title": "Fill the form manually",
+      "description": "Fill the form manually with bank and personal information including bank branch, town or village, block or district, Aadhaar number, profession, annual income, Kisan Credit Card details and other requested information."
+    },
+    {
+      "step_number": 6,
+      "title": "Visit the nearest bank branch",
+      "description": "Visit the nearest bank branch."
+    },
+    {
+      "step_number": 7,
+      "title": "Submit the completed form",
+      "description": "Submit the completed form."
+    },
+    {
+      "step_number": 8,
+      "title": "Provide documents and contact information",
+      "description": "Provide the required documents along with mobile number or email ID."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "is_indian_national",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is an Indian National."
+    },
+    {
+      "field_name": "is_minor_above_10",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is a minor above ten years of age. If a minor above ten applies, support from legal guardians is required for administering the PMJDY account."
+    },
+    {
+      "field_name": "has_legal_guardian_support",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether legal guardian support is available for administering the PMJDY account, required if the applicant is a minor above ten."
+    },
+    {
+      "field_name": "aadhaar_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Aadhaar card or Aadhaar number is available."
+    },
+    {
+      "field_name": "government_id_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a government-issued identity proof such as Voter Card, PAN Card or Ration Card is available."
+    },
+    {
+      "field_name": "permanent_address_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether permanent address proof such as Passport, Driving License, Electricity Bill, Telephone Bill or Water Bill is available."
+    },
+    {
+      "field_name": "passport_photo_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a recent passport-size photograph is available."
+    },
+    {
+      "field_name": "pmjdy_account_opening_form_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the filled and signed PMJDY Account Opening Form is available."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for account communication."
+    },
+    {
+      "field_name": "email",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Email address of the applicant for account communication."
+    },
+    {
+      "field_name": "bank_branch",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Name of the bank branch where the account is to be opened."
+    },
+    {
+      "field_name": "town_or_village",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Town or village of the applicant."
+    },
+    {
+      "field_name": "block",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Block of the applicant."
+    },
+    {
+      "field_name": "district",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "District of the applicant."
+    },
+    {
+      "field_name": "profession",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Profession or occupation of the applicant."
+    },
+    {
+      "field_name": "annual_income",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Annual income of the applicant."
+    },
+    {
+      "field_name": "has_kisan_credit_card",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a Kisan Credit Card."
+    },
+    {
+      "field_name": "kisan_credit_card_details_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Kisan Credit Card details are available for inclusion in the account opening form."
+    },
+    {
+      "field_name": "existing_bank_account_status",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Status of any existing bank account held by the applicant."
+    },
+    {
+      "field_name": "is_unbanked_adult",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is an unbanked adult. The scheme's focus shifted toward unbanked adults beyond 14.08.2018."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PMJDY content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmjdy.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PMJDY official portal referenced from the supplied source."
+    }
+  ]
+}

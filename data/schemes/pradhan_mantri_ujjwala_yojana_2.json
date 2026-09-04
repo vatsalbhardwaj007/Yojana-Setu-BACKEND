@@ -1,0 +1,363 @@
+{
+  "scheme_code": "pradhan_mantri_ujjwala_yojana_2",
+  "name": "Pradhan Mantri Ujjwala Yojana 2.0",
+  "description": "Pradhan Mantri Ujjwala Yojana (PMUY) was launched in May 2016 by the Ministry of Petroleum and Natural Gas to provide free LPG connections to women from poor households. The objective is to promote clean cooking fuel such as LPG among rural and deprived families traditionally relying on firewood, coal or cow-dung cakes. Under Ujjwala 2.0, the scheme was expanded with an additional allocation of 1.6 crore LPG connections, including a special facility for migrant households.",
+  "ministry": "Ministry of Petroleum and Natural Gas",
+  "department": "Ministry of Petroleum and Natural Gas",
+  "scheme_type": "benefit",
+  "status": "active",
+  "effective_from": "2016-05-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMUY",
+    "PMUY 2.0",
+    "Pradhan Mantri Ujjwala Yojana",
+    "Pradhan Mantri Ujjwala Yojana 2.0"
+  ],
+  "target_groups": [
+    "Women",
+    "Poor households",
+    "Rural households",
+    "Deprived households",
+    "Migrant households"
+  ],
+  "tags": [
+    "Cooking Fuel",
+    "Household",
+    "LPG",
+    "Women",
+    "Clean Cooking Fuel"
+  ],
+  "benefits": [
+    "Government cash assistance of ₹1,600 for a 14.2 kg LPG connection.",
+    "Government cash assistance of ₹1,150 for a 5 kg LPG connection.",
+    "Security deposit of cylinder is covered: ₹1,250 for a 14.2 kg cylinder or ₹800 for a 5 kg cylinder.",
+    "Pressure regulator cost of ₹150 is covered.",
+    "LPG hose cost of ₹100 is covered.",
+    "Domestic Gas Consumer Card cost of ₹25 is covered.",
+    "Inspection, installation and demonstration charges of ₹75 are covered.",
+    "First LPG refill is provided free of cost.",
+    "Stove or hotplate is provided free of cost.",
+    "Deposit-free LPG connection is provided to eligible PMUY beneficiaries."
+  ],
+  "official_url": "https://www.pmuy.gov.in/",
+  "rules": [
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": ">=",
+      "value": 18,
+      "description": "Applicant must be at least 18 years old."
+    },
+    {
+      "rule_group": "household",
+      "field": "household_has_existing_lpg_connection",
+      "operator": "=",
+      "value": false,
+      "description": "Applicant's household must not have any existing LPG connection."
+    },
+    {
+      "rule_group": "gender",
+      "field": "is_woman",
+      "operator": "=",
+      "value": true,
+      "description": "PMUY 2.0 eligibility is specified for women applicants."
+    },
+    {
+      "rule_group": "beneficiary_category",
+      "field": "meets_pmuy_eligible_category",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant woman must belong to at least one eligible category: SC household, ST household, PMAY-G household, Most Backward Class, Antyodaya Anna Yojana household, Tea or Ex-Tea Garden tribe, Forest Dweller, person residing on an island or river island, SECC household (AHL TIN), or poor household as per the 14-point declaration."
+    }
+  ],
+  "exclusion_rules": [],
+  "documents": [
+    {
+      "document_type": "other",
+      "document_name": "Know Your Customer (KYC) Form",
+      "is_mandatory": true,
+      "description": "KYC form as per PMUY requirements."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Ration Card",
+      "is_mandatory": true,
+      "description": "Ration Card issued by the State from which the application is being made."
+    },
+    {
+      "document_type": "other",
+      "document_name": "State Government family composition document",
+      "is_mandatory": false,
+      "description": "Other State Government document certifying family composition, if applicable."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Self-Declaration as per Annexure I",
+      "is_mandatory": false,
+      "description": "Self-Declaration as per Annexure I for migrant applicants."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar of the beneficiary",
+      "is_mandatory": true,
+      "description": "Aadhaar of the woman beneficiary. Can serve as both identity and address proof when the connection is required at the same address."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar of adult family members",
+      "is_mandatory": false,
+      "description": "Aadhaar of adult family members appearing in the family-composition document."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Proof of Address",
+      "is_mandatory": true,
+      "description": "Proof of address. Aadhaar can serve as both identity and address proof when the connection is required at the same address."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Bank Account Number",
+      "is_mandatory": true,
+      "description": "Bank account number or bank account details of the applicant."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "IFSC",
+      "is_mandatory": true,
+      "description": "IFSC code of the applicant's bank branch."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Obtain the application forms",
+      "description": "Download the forms from the official PMUY website or obtain them from the nearest LPG distributor."
+    },
+    {
+      "step_number": 2,
+      "title": "Review KYC Form",
+      "description": "Review the KYC Form available at https://www.pmuy.gov.in/documents/Supplementary%20KYC.pdf."
+    },
+    {
+      "step_number": 3,
+      "title": "Review Supplementary KYC Document and Undertaking",
+      "description": "Review the Supplementary KYC Document and Undertaking available at https://www.pmuy.gov.in/documents/Supplementary%20KYC.pdf."
+    },
+    {
+      "step_number": 4,
+      "title": "Complete Annexure I for migrant applicants",
+      "description": "For migrant applicants, use Annexure I available at https://www.pmuy.gov.in/documents/Annexure%20I.pdf."
+    },
+    {
+      "step_number": 5,
+      "title": "Review Annexure II",
+      "description": "Annexure II relates to the mechanics or pre-installation check, available at https://www.pmuy.gov.in/documents/Annexure%20II.pdf."
+    },
+    {
+      "step_number": 6,
+      "title": "Fill out the application form",
+      "description": "Fill out the application form with the required personal details."
+    },
+    {
+      "step_number": 7,
+      "title": "Provide bank account information",
+      "description": "Provide bank account information including account number and IFSC."
+    },
+    {
+      "step_number": 8,
+      "title": "Select LPG distributor preference",
+      "description": "Select LPG distributor preference."
+    },
+    {
+      "step_number": 9,
+      "title": "Attach supporting documents",
+      "description": "Attach the necessary supporting documents."
+    },
+    {
+      "step_number": 10,
+      "title": "Submit the application",
+      "description": "Submit the completed application and documents to the nearest LPG distributor."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "applicant_age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant in years."
+    },
+    {
+      "field_name": "is_woman",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is a woman."
+    },
+    {
+      "field_name": "household_has_existing_lpg_connection",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant's household has an existing LPG connection."
+    },
+    {
+      "field_name": "meets_pmuy_eligible_category",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to at least one eligible category as listed in the source."
+    },
+    {
+      "field_name": "social_category",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["SC", "ST", "Most Backward Class", "Other"],
+      "description": "Social category of the applicant, if applicable."
+    },
+    {
+      "field_name": "is_pmays_g_beneficiary",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is a beneficiary of Pradhan Mantri Awas Yojana (Gramin)."
+    },
+    {
+      "field_name": "is_most_backward_class",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to the Most Backward Classes category."
+    },
+    {
+      "field_name": "is_antyodaya_anna_yojana_household",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to an Antyodaya Anna Yojana household."
+    },
+    {
+      "field_name": "is_tea_or_ex_tea_garden_tribe",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to Tea or Ex-Tea Garden tribes."
+    },
+    {
+      "field_name": "is_forest_dweller",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is a Forest Dweller."
+    },
+    {
+      "field_name": "resides_on_island_or_river_island",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant resides on an island or river island."
+    },
+    {
+      "field_name": "is_secc_household",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to a SECC household (AHL TIN)."
+    },
+    {
+      "field_name": "is_poor_household_14_point_declaration",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to a poor household as per the 14-point declaration."
+    },
+    {
+      "field_name": "is_migrant_applicant",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is a migrant applicant requiring Annexure I."
+    },
+    {
+      "field_name": "aadhaar_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Aadhaar of the beneficiary is available."
+    },
+    {
+      "field_name": "adult_family_members_aadhaar_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether Aadhaar of adult family members appearing in the family-composition document is available."
+    },
+    {
+      "field_name": "family_composition_document_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a State Government document certifying family composition is available."
+    },
+    {
+      "field_name": "address_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether proof of address is available. Aadhaar can serve as both identity and address proof when the connection is required at the same address."
+    },
+    {
+      "field_name": "bank_account_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Bank account number of the applicant."
+    },
+    {
+      "field_name": "bank_ifsc",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "IFSC code of the applicant's bank branch."
+    },
+    {
+      "field_name": "lpg_distributor_preference",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Preferred LPG distributor for connection."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for communication."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PMUY 2.0 content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.pmuy.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PMUY official portal referenced from the supplied source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.pmuy.gov.in/documents/Supplementary%20KYC.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PMUY official documents including Supplementary KYC referenced from the supplied source."
+    }
+  ]
+}

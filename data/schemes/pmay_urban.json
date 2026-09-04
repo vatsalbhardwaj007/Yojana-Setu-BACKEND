@@ -1,0 +1,283 @@
+{
+  "scheme_code": "pmay_urban",
+  "name": "Pradhan Mantri Awas Yojana - Urban",
+  "description": "Pradhan Mantri Awas Yojana - Urban (PMAY-U) was launched on 25 June 2015 by the Ministry of Housing & Urban Affairs, Government of India with the vision of Housing for All. The scheme provides pucca houses to eligible urban households, addressing urban housing shortages especially for EWS, LIG and MIG categories, including slum dwellers. The mission covers statutory towns and notified urban areas as per Census 2011. Aadhaar is mandatory for eligible beneficiaries.",
+  "ministry": "Ministry of Housing & Urban Affairs",
+  "department": "Ministry of Housing & Urban Affairs",
+  "scheme_type": "housing",
+  "status": "active",
+  "effective_from": "2015-06-25",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMAY-U",
+    "PMAY Urban",
+    "Pradhan Mantri Awas Yojana Urban",
+    "PMAY-U 2.0"
+  ],
+  "target_groups": [
+    "EWS",
+    "LIG",
+    "MIG",
+    "urban households",
+    "slum dwellers"
+  ],
+  "tags": [
+    "Housing",
+    "Loan",
+    "Rehabilitation",
+    "Sanitation",
+    "Urban"
+  ],
+  "benefits": [
+    "BLC & AHP: Central Government assistance varies by State/UT. For Assam, Arunachal Pradesh, Meghalaya, Manipur, Mizoram, Nagaland, Tripura, Sikkim, Himachal Pradesh, Uttarakhand, UTs of Jammu and Kashmir, Puducherry and Delhi: Central Government ₹2.25 lakh per unit and State Government minimum ₹0.25 lakh per unit. For all other UTs: Central Government ₹2.50 lakh per unit. For all other States: Central Government ₹1.5 lakh per unit and State Government minimum ₹1.00 lakh per unit.",
+    "ARH: Technology Innovation Grant of ₹3,000 per square metre per unit from the Central Government and ₹2,000 per square metre per unit from the State Government, as stated in the supplied source.",
+    "ISS: Home Loan Subsidy of up to ₹1.80 lakh actual release per unit by the Government of India as a Central Sector Scheme."
+  ],
+  "official_url": "https://pmay-urban.gov.in/",
+  "rules": [
+    {
+      "rule_group": "income_category",
+      "field": "meets_pmay_u_income_category",
+      "operator": "=",
+      "value": true,
+      "description": "The family must identify as one of the specified income categories: EWS with annual income up to ₹3,00,000; LIG with annual income ₹3,00,001 to ₹6,00,000; MIG-1 with annual income ₹6,00,001 to ₹12,00,000; or MIG-2 with annual income ₹12,00,001 to ₹18,00,000."
+    },
+    {
+      "rule_group": "housing",
+      "field": "owns_pucca_house",
+      "operator": "=",
+      "value": false,
+      "description": "The applicant or family members must not own a pucca house in any part of the country."
+    },
+    {
+      "rule_group": "family_composition",
+      "field": "has_pmay_u_defined_family_composition",
+      "operator": "=",
+      "value": true,
+      "description": "The family must comprise husband/wife and unmarried children."
+    },
+    {
+      "rule_group": "location",
+      "field": "resides_in_pmay_u_covered_town_or_city",
+      "operator": "=",
+      "value": true,
+      "description": "The town/city in which the family resides must be covered under the scheme."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "previous_housing_benefit",
+      "field": "previously_availed_goi_housing_scheme",
+      "operator": "=",
+      "value": true,
+      "description": "The family must not have previously availed benefits of any housing-related scheme set up by the Government of India."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Number or Aadhaar Enrolment ID",
+      "is_mandatory": true,
+      "description": "Aadhaar Number or Aadhaar/Aadhaar Enrolment ID."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "Self-Certificate / Affidavit as Proof of Income",
+      "is_mandatory": true,
+      "description": "Self-certificate or affidavit as proof of income."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Identity and Residential Proof",
+      "is_mandatory": true,
+      "description": "Examples given in the source include PAN card, Voter ID and Driving License."
+    },
+    {
+      "document_type": "category_certificate",
+      "document_name": "Proof of Minority Community",
+      "is_mandatory": false,
+      "description": "Required if the applicant belongs to a Minority Community."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Proof of Nationality",
+      "is_mandatory": true,
+      "description": "Proof of nationality."
+    },
+    {
+      "document_type": "category_certificate",
+      "document_name": "EWS / LIG / MIG Certificate",
+      "is_mandatory": true,
+      "description": "EWS Certificate, LIG Certificate or MIG Certificate as applicable."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "Salary Slips",
+      "is_mandatory": true,
+      "description": "Salary slips."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "IT Return Statements",
+      "is_mandatory": true,
+      "description": "Income tax return statements."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Property Valuation Certificate",
+      "is_mandatory": true,
+      "description": "Property valuation certificate."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Bank Details and Account Statement",
+      "is_mandatory": true,
+      "description": "Bank details and account statement."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Affidavit / Proof of No Pucca House",
+      "is_mandatory": true,
+      "description": "Affidavit or proof that the applicant does not own a pucca house."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Affidavit / Proof of Home Construction",
+      "is_mandatory": true,
+      "description": "Affidavit or proof that the applicant is constructing a home under the scheme."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Open PMAY-U 2.0 website",
+      "description": "Register on the PMAY-U 2.0 website and select the Apply for PMAY-U 2.0 option."
+    },
+    {
+      "step_number": 2,
+      "title": "Review eligibility and verticals",
+      "description": "Read the instructions and eligibility criteria and choose one of the four PMAY-U 2.0 verticals before availing benefits."
+    },
+    {
+      "step_number": 3,
+      "title": "Complete eligibility check",
+      "description": "Proceed through the eligibility check for the scheme."
+    },
+    {
+      "step_number": 4,
+      "title": "Give Aadhaar authentication consent",
+      "description": "After the eligibility check, provide consent for Aadhaar authentication."
+    },
+    {
+      "step_number": 5,
+      "title": "Complete beneficiary survey",
+      "description": "Complete the Beneficiary Survey Form for the selected vertical."
+    },
+    {
+      "step_number": 6,
+      "title": "Prepare required documents",
+      "description": "Provide the required identity, residential, income, category, property and affidavit documents as applicable."
+    },
+    {
+      "step_number": 7,
+      "title": "Use the official website or MIS portal",
+      "description": "The source provides the official PMAY-Urban website and PMAY MIS portal for scheme-related services."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "meets_pmay_u_income_category",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the family falls within an eligible PMAY-U income category."
+    },
+    {
+      "field_name": "annual_household_income",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Annual household income used to determine EWS, LIG, MIG-1 or MIG-2 category."
+    },
+    {
+      "field_name": "income_category",
+      "field_type": "select",
+      "is_required": true,
+      "allowed_values": ["EWS", "LIG", "MIG-1", "MIG-2"],
+      "description": "Income category: EWS, LIG, MIG-1 or MIG-2."
+    },
+    {
+      "field_name": "owns_pucca_house",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant or family members own a pucca house anywhere in India."
+    },
+    {
+      "field_name": "has_pmay_u_defined_family_composition",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the family comprises husband/wife and unmarried children as specified by the source."
+    },
+    {
+      "field_name": "resides_in_pmay_u_covered_town_or_city",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant's town/city is covered under the scheme."
+    },
+    {
+      "field_name": "previously_availed_goi_housing_scheme",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the family has previously availed benefits of a housing-related Government of India scheme."
+    },
+    {
+      "field_name": "aadhaar_available",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether Aadhaar Number or Aadhaar Enrolment ID is available; the source states Aadhaar is mandatory for eligible beneficiaries."
+    },
+    {
+      "field_name": "belongs_to_minority_community",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant belongs to a Minority Community."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility, application process and documents were curated from the supplied myScheme content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmay-urban.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official PMAY-Urban website supplied as the official website and source reference."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmay-urban.gov.in/uploads/guidelines/Operational-Guidelines-of-PMAY-U-2.pdf",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official operational guidelines URL supplied in the source."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmaymis.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official MIS portal supplied in the source."
+    }
+  ]
+}

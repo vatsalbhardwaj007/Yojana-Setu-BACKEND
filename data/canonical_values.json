@@ -1,0 +1,19 @@
+{
+  "_comment": "Provisional MVP canonical values. NOT exhaustive government-wide enumerations.",
+  "scheme_types": [
+    "subsidy", "insurance", "pension", "benefit", "loan_guarantee",
+    "scholarship", "employment", "healthcare", "housing", "other"
+  ],
+  "statuses": ["active", "inactive", "archived"],
+  "operators": ["=", "!=", ">=", "<=", ">", "<", "in", "not_in", "exists", "between"],
+  "document_types": [
+    "identity_proof", "address_proof", "income_proof", "category_certificate",
+    "age_proof", "land_record", "bank_details", "photograph", "declaration", "other"
+  ],
+  "rule_groups": [
+    "age", "income", "category", "location", "landholding",
+    "employment", "education", "gender", "disability", "other"
+  ],
+  "profile_field_types": ["text", "number", "date", "boolean", "select"],
+  "verification_methods": ["online", "offline", "both"]
+}
