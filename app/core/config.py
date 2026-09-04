@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # Authentication & Supabase JWT Configuration
     SUPABASE_JWT_SECRET: str = ""
     JWT_ALGORITHM: str = "HS256"
-    JWT_AUDIENCE: str = "authenticated"
+    JWT_AUDIENCE: str = ""
 
 
     # CORS Configuration

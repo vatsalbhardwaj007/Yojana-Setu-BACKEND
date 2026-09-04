@@ -98,11 +98,12 @@ def create_access_token(
 
     payload: dict[str, Any] = {
         "sub": str(sub),
-        "aud": settings.JWT_AUDIENCE or "authenticated",
         "role": role,
         "iat": now_ts,
         "exp": exp_ts,
     }
+    if settings.JWT_AUDIENCE:
+        payload["aud"] = settings.JWT_AUDIENCE
     if email:
         payload["email"] = email
     if phone:
