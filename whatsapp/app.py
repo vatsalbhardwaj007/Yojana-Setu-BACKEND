@@ -9,7 +9,6 @@ from fastapi import FastAPI, Request, Response
 
 from whatsapp.config import WhatsAppConfig
 from whatsapp.handlers import handle_message
-from whatsapp.m2_client import M2EligibilityClient
 from whatsapp.message_utils import split_message
 from whatsapp.webhook import parse_incoming_message, verify_signature, verify_webhook
 
@@ -18,7 +17,6 @@ logger = logging.getLogger("yojanasetu.whatsapp")
 app = FastAPI(title="YojanaSetu WhatsApp Bot", version="0.1.0")
 
 config = WhatsAppConfig.from_env()
-m2_client = M2EligibilityClient(backend_url=config.m2_backend_url, api_key=config.m2_api_key)
 
 WHATSAPP_API_BASE = "https://graph.facebook.com"
 

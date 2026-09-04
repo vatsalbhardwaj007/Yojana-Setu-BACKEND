@@ -7,13 +7,19 @@ import re
 from typing import Any, Optional
 
 from whatsapp import scheme_service, templates
+from whatsapp.config import WhatsAppConfig
 from whatsapp.m2_client import M2EligibilityClient
 
 
 # Per-user session state (phone -> state dict). MVP: in-memory only.
 _sessions: dict[str, dict] = {}
 
-m2_client = M2EligibilityClient()
+_config = WhatsAppConfig.from_env()
+m2_client = M2EligibilityClient(
+    backend_url=_config.m2_backend_url,
+    api_key=_config.m2_api_key,
+    timeout=_config.m2_timeout,
+)
 
 
 def _get_session(phone: str) -> dict:
