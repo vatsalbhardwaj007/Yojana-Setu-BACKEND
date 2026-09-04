@@ -1,6 +1,9 @@
+from pathlib import Path
 from typing import List, Union
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
 class Settings(BaseSettings):
@@ -18,10 +21,15 @@ class Settings(BaseSettings):
     PORT: int = 8000
     HOST: str = "0.0.0.0"
 
+    # Data paths
+    DATA_DIR: Path = PROJECT_ROOT / "data"
+    SCHEMES_DIR: Path = PROJECT_ROOT / "data" / "schemes"
+
     # Database / Supabase configuration placeholders
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
     DATABASE_URL: str = ""
+    SQLITE_DB_PATH: str = str(PROJECT_ROOT / "data" / "yojanasetu.db")
 
     # CORS Configuration
     CORS_ORIGINS: Union[List[str], str] = ["*"]

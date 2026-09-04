@@ -1,0 +1,321 @@
+{
+  "scheme_code": "pmkvy_4_short_term_training",
+  "name": "Pradhan Mantri Kaushal Vikas Yojana 4.0 - Short-Term Training",
+  "description": "Pradhan Mantri Kaushal Vikas Yojana 4.0 - Short-Term Training is a skill development scheme implemented between FY 2022-2026 under the Skill India Programme. Implemented by the Ministry of Skill Development and Entrepreneurship (MSDE), Government of India, it provides market-oriented and demand-driven skill training to youth to enhance employability through industry-relevant, NSQF-aligned courses. The training ranges between 300 and 600 hours with an inherent On-the-Job Training component. Higher-duration courses and higher-level NSQF job roles including levels 5, 6 and above are covered. The scheme includes assessment and certification, accidental insurance, applicable allowances and support. NSDC is the implementing arm of MSDE and the designated Central Nodal Agency.",
+  "ministry": "Ministry of Skill Development and Entrepreneurship",
+  "department": "Ministry of Skill Development and Entrepreneurship",
+  "scheme_type": "benefit",
+  "status": "active",
+  "effective_from": "2022-04-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PMKVY 4.0",
+    "Pradhan Mantri Kaushal Vikas Yojana 4.0",
+    "PMKVY 4.0 - Short-Term Training",
+    "Short-Term Training (STT)"
+  ],
+  "target_groups": [
+    "youth",
+    "unemployed youth",
+    "out-of-education candidates",
+    "school/college dropouts",
+    "candidates seeking fresh skilling",
+    "candidates seeking re-skilling",
+    "candidates seeking upskilling",
+    "Indian nationals"
+  ],
+  "tags": [
+    "Counselling",
+    "Dropout",
+    "Kaushal",
+    "Placement",
+    "Skill",
+    "Training",
+    "Unemployed",
+    "Vikas"
+  ],
+  "benefits": [
+    "Free NSQF-aligned skill training ranging between 300 and 600 hours.",
+    "Higher-duration courses may also be offered where justified by industry or sectoral demand.",
+    "Training in higher-level NSQF job roles, including NSQF levels 5, 6 and above.",
+    "On-the-Job Training (OJT) is an inherent component of the training and provides practical exposure and a live-work environment.",
+    "OJT duration is guided by the approved Qualification Pack.",
+    "An induction kit is provided including a T-shirt for male candidates, a jacket for female candidates, and a bag.",
+    "Uniform, induction kit and participant handbook are covered up to a maximum of ₹500 per candidate.",
+    "Assessment and certification are provided.",
+    "₹600 per candidate per assessment is paid to Sector Skill Councils (SSCs) or Awarding Bodies for overseeing and facilitating final assessments.",
+    "Every candidate gets one free reassessment opportunity.",
+    "Reassessment fees are borne by the scheme.",
+    "Accidental insurance with one year of coverage is provided to every certified candidate at the applicable rate of ₹14.16.",
+    "Boarding and lodging with transport facilities are provided to special groups including women, Persons with Disability (PwD), and candidates in Special Areas as defined in Common Norms.",
+    "Boarding, lodging and transport support may also be extended to Aspirational districts, Border districts, Tribal-dominated districts and LWE-affected districts.",
+    "Conveyance or transportation cost is permissible for women and PwD candidates in case of non-residential training, according to Common Norms.",
+    "Additional support of ₹5,000 is provided to PwD candidates towards assistive devices, aids and appliances.",
+    "A free printed certificate is provided after successful certification.",
+    "A QR-code-based digital certificate is issued through DigiLocker.",
+    "A digital certificate or download link is also provided through email or phone.",
+    "The certificate is available through the Skill India Digital profile.",
+    "A convocation ceremony is held for passed-out candidates.",
+    "After certification, candidates are tracked for one year.",
+    "Candidates are linked with Rojgar Melas and Apprenticeship Melas.",
+    "Skill India Digital provides access to jobs and apprenticeship opportunities.",
+    "Skill India Digital also provides access to other facilities including loans for entrepreneurship.",
+    "A post-certification tracking allowance of up to ₹50 per certified candidate is utilised for post-certification tracking.",
+    "On passing the assessment, candidates receive a graded certificate.",
+    "For NSQF Levels 1, 2 and 3: Grade A is 85% and above, Grade B is 70% to less than 85%, Grade C is 50% to 70%.",
+    "For NSQF Level 4 and above: Grade A is 85% and above, Grade B is 70% to less than 85%.",
+    "More than 70% biometric AEBAS attendance is required for a candidate to appear in the assessment.",
+    "Indicative average per-candidate cost is ₹9,540 for a 300-hour STT course including Skill Hubs.",
+    "Indicative average per-candidate cost is ₹13,724 for a 450-hour STT course.",
+    "These costs are derived using a base training cost of ₹27.89 per hour.",
+    "Funds are released to Training Providers, Training Centres and Skill Hubs in three tranches: 30% on commencement, 30% when the batch achieves 70% AEBAS attendance once and 50% of training is over, and 40% on certification of passed candidates only.",
+    "Accidental insurance coverage is valid for one year.",
+    "Post-certification tracking is conducted for one year from the certification date."
+  ],
+  "official_url": "https://www.skillindiadigital.gov.in/home",
+  "rules": [
+    {
+      "rule_group": "basic",
+      "field": "is_indian_national",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be an Indian national."
+    },
+    {
+      "rule_group": "basic",
+      "field": "has_valid_aadhaar",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must possess a valid Aadhaar."
+    },
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": ">=",
+      "value": 15,
+      "description": "Applicant must be at least 15 years of age."
+    },
+    {
+      "rule_group": "age",
+      "field": "applicant_age",
+      "operator": "<=",
+      "value": 45,
+      "description": "Applicant must be at most 45 years of age."
+    },
+    {
+      "rule_group": "job_role",
+      "field": "meets_pmkvy_job_role_eligibility",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant fulfils the eligibility criteria of the respective PMKVY job role as defined in the applicable course curriculum."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "prior_training",
+      "field": "already_trained_in_same_job_role",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant has already been trained in the same job role and should not be enrolled again."
+    },
+    {
+      "rule_group": "repeat_enrolment",
+      "field": "invalid_pmkvy_repeat_sector_enrolment",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant does not satisfy the source conditions for a second PMKVY training in the same sector, including the requirement that the second training be for a higher NSQF-aligned job role and that the required six-month gap between the certification date of the first course and the batch start date of the subsequent course be maintained."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Required for eKYC and mobile-based OTP profile verification."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Register on Skill India Digital",
+      "description": "Register on the Skill India Digital (SID) platform or the relevant mobile application. The registration process includes mobile-based OTP, eKYC or profile verification, a de-duplication check against the SID database, and prevention of re-enrolment in the same job role."
+    },
+    {
+      "step_number": 2,
+      "title": "Complete candidate profiling",
+      "description": "Complete candidate profiling. Existing details may be fetched from e-Shram or National Career Services (NCS)."
+    },
+    {
+      "step_number": 3,
+      "title": "Use online counselling through SID",
+      "description": "Use online counselling through SID to select an appropriate course and Training Centre. The candidate may select the nearest Training Centre depending on availability of the preferred job role. Training infrastructure, centre quality, centre rating and profile may be considered."
+    },
+    {
+      "step_number": 4,
+      "title": "Complete enrolment",
+      "description": "Complete enrolment. The candidate is informed about training programme details. Facilities are displayed on the profile page. A downloadable information link may be sent to the registered number or provided at the centre."
+    },
+    {
+      "step_number": 5,
+      "title": "Complete the training lifecycle",
+      "description": "Complete classroom, blended or online training according to the approved Qualification Pack, including applicable On-the-Job Training. Assessment is conducted through NCVET-approved Awarding Bodies and Assessment Agencies."
+    },
+    {
+      "step_number": 6,
+      "title": "Receive certification",
+      "description": "After successfully passing the assessment, a QR-code-based digital certificate is issued through DigiLocker. A digital certificate or download link is available through email or phone. The certificate is available on the Skill India Digital profile. A free printed certificate is provided by the Training Provider."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "applicant_age",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Age of the applicant in years."
+    },
+    {
+      "field_name": "is_indian_national",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is an Indian national."
+    },
+    {
+      "field_name": "has_valid_aadhaar",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant possesses a valid Aadhaar."
+    },
+    {
+      "field_name": "meets_pmkvy_job_role_eligibility",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant fulfils the eligibility criteria of the respective PMKVY job role as defined in the applicable course curriculum."
+    },
+    {
+      "field_name": "meets_pmkvy_candidate_status_criteria",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant falls within the candidate-status criteria supported by PMKVY 4.0 STT, including fresh skilling, re-skilling, upskilling, out-of-education, school/college dropout or unemployed youth."
+    },
+    {
+      "field_name": "already_trained_in_same_job_role",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant has already been trained in the same job role."
+    },
+    {
+      "field_name": "invalid_pmkvy_repeat_sector_enrolment",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant does not satisfy the conditions for a second PMKVY training in the same sector."
+    },
+    {
+      "field_name": "is_out_of_education",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is out of education."
+    },
+    {
+      "field_name": "is_school_or_college_dropout",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is a school or college dropout."
+    },
+    {
+      "field_name": "is_unemployed_youth",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant is an unemployed youth."
+    },
+    {
+      "field_name": "training_purpose",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["fresh_skilling", "re_skilling", "upskilling"],
+      "description": "Purpose of training: fresh skilling, re-skilling or upskilling."
+    },
+    {
+      "field_name": "has_prior_pmkvy_certification",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has been previously certified under PMKVY."
+    },
+    {
+      "field_name": "previous_nsqf_level",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "NSQF level of the applicant's previous training or certification, if any."
+    },
+    {
+      "field_name": "proposed_nsqf_level",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "NSQF level of the proposed job role for the current training."
+    },
+    {
+      "field_name": "sector",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Sector for the proposed training."
+    },
+    {
+      "field_name": "previous_training_sector",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Sector of the applicant's previous PMKVY training, if any."
+    },
+    {
+      "field_name": "is_second_training_in_sector",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether this is the applicant's second training in the same sector."
+    },
+    {
+      "field_name": "six_month_gap_maintained",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the required six-month gap between the certification date of the first course and the batch start date of the subsequent course is maintained."
+    },
+    {
+      "field_name": "is_higher_nsqf_job_role",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the proposed job role is at a higher NSQF level than the previous training in the same sector."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PMKVY 4.0 Short-Term Training content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://xn--o1bna6ezc1cxc.xn--11b7cb3a6a.xn--h2brj9c/offerings/schemes-and-services/details/pradhan-mantri-kaushal-vikas-yojana-4-0-pmkvy-4-0-2021-ITO3ATMtQWa",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Official PMKVY 4.0 scheme source page referenced from the supplied myScheme content."
+    }
+  ]
+}

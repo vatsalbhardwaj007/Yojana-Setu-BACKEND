@@ -1,10 +1,19 @@
-"""Database ORM / table models package.
+"""Database entity models package."""
 
-Accommodates database entity definitions:
-- Users & User Profiles
-- Schemes & Scheme Metadata
-- Eligibility Rules
-- Documents & Requirements
-- Tutorial Steps
-- Saved Schemes & Activity
-"""
+from app.models.scheme import (
+    SchemeDocumentModel,
+    SchemeModel,
+    SchemeProfileFieldModel,
+    SchemeRuleModel,
+    SchemeVerificationModel,
+    TutorialStepModel,
+)
+
+__all__ = [
+    "SchemeDocumentModel",
+    "SchemeModel",
+    "SchemeProfileFieldModel",
+    "SchemeRuleModel",
+    "SchemeVerificationModel",
+    "TutorialStepModel",
+]

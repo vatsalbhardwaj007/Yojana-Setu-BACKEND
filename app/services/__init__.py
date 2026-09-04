@@ -1,7 +1,5 @@
-"""Business logic and service orchestration layer.
+"""Business logic and service orchestration layer."""
 
-Accommodates:
-- Profile management services
-- Scheme retrieval & filtering services
-- Recommendation ranking & relevance scoring logic
-"""
+from app.services.scheme_service import SchemeNotFoundError, SchemeService
+
+__all__ = ["SchemeNotFoundError", "SchemeService"]

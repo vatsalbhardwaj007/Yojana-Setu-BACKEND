@@ -1,8 +1,5 @@
-"""API router and endpoint controllers package.
+"""API router and endpoint controllers package."""
 
-Accommodates:
-- User / Profile endpoints (/profile)
-- Scheme discovery and detail endpoints (/schemes)
-- Eligibility checking & recommendation endpoints (/eligibility)
-- Integration hooks (AI/Search, WhatsApp)
-"""
+from app.api.v1 import api_v1_router
+
+__all__ = ["api_v1_router"]

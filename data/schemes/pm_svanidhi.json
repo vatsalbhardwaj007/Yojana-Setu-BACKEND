@@ -1,0 +1,430 @@
+{
+  "scheme_code": "pm_svanidhi",
+  "name": "PM Street Vendor's AtmaNirbhar Nidhi",
+  "description": "PM Street Vendor's AtmaNirbhar Nidhi (PM SVANidhi) is a Central Sector Scheme launched on 1 June 2020 by the Ministry of Housing and Urban Affairs, Government of India. The scheme aims to formalize street vendors and enhance their economic opportunities through collateral-free working capital loans, interest subsidy and digital transaction incentives. The scheme supports vendors in restarting and expanding their businesses and promotes digital payments and financial inclusion. Street vendors include hawkers, thelewala, rehriwala, theliphadwala and others engaged in small-scale vending activities.",
+  "ministry": "Ministry of Housing and Urban Affairs",
+  "department": "Ministry of Housing and Urban Affairs",
+  "scheme_type": "loan_guarantee",
+  "status": "active",
+  "effective_from": "2020-06-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PM SVANidhi",
+    "PM Street Vendor's AtmaNirbhar Nidhi",
+    "Street Vendor's AtmaNirbhar Nidhi"
+  ],
+  "target_groups": [
+    "Street Vendors",
+    "Urban Street Vendors",
+    "Peri-urban Street Vendors",
+    "Rural Street Vendors vending within ULB geographical limits"
+  ],
+  "tags": [
+    "Affordable Credit",
+    "Digital Empowerment",
+    "Enhanced Livelihood",
+    "Street Vendors",
+    "Working Capital Loan"
+  ],
+  "benefits": [
+    "First working-capital loan tranche up to ₹15,000 with repayment within 12 months.",
+    "Second working-capital loan tranche up to ₹25,000 with repayment within 18 months.",
+    "Third working-capital loan tranche up to ₹50,000 with repayment within 36 months.",
+    "Next loan tranche is available on timely or early repayment.",
+    "No prepayment penalty on early repayment.",
+    "Interest subsidy at 7% per annum on the loan amount.",
+    "Interest subsidy is credited quarterly to the beneficiary's bank account.",
+    "Interest subsidy is applicable only for standard (non-NPA) accounts.",
+    "Interest subsidy is valid up to 31 March 2033.",
+    "Cashback up to ₹100 per month for digital transactions.",
+    "Credit guarantee cover of 31.87% for the first tranche loan.",
+    "Credit guarantee cover of 8.25% for the second tranche loan.",
+    "Credit guarantee cover of 6% for the third tranche loan.",
+    "No credit guarantee charges for lending institutions.",
+    "UPI-linked RuPay credit card with initial credit limit of ₹10,000, extendable up to ₹30,000.",
+    "UPI-linked RuPay credit card has a validity of 5 years.",
+    "UPI-linked RuPay credit card is available after successful repayment of the second loan tranche."
+  ],
+  "official_url": "https://pmsvanidhi.mohua.gov.in/",
+  "rules": [
+    {
+      "rule_group": "vendor_identification",
+      "field": "meets_pm_svanidhi_vendor_identification_criteria",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must satisfy at least one of the source-supported vendor identification conditions: (1) Street vendor possessing a Certificate of Vending or Identity Card issued by an Urban Local Body (ULB). (2) Vendor identified in the survey but not yet issued a Certificate of Vending or Identity Card. (3) Street vendor left out of the ULB-led identification survey or who started vending after completion of the survey and has a Letter of Recommendation (LoR) from the ULB or Town Vending Committee (TVC). (4) Vendor from surrounding development, peri-urban or rural areas vending within the geographical limits of a ULB and possessing an LoR issued by the ULB or TVC."
+    }
+  ],
+  "exclusion_rules": [],
+  "documents": [
+    {
+      "document_type": "other",
+      "document_name": "Certificate of Vending",
+      "is_mandatory": true,
+      "description": "Certificate of Vending issued by the Urban Local Body (ULB). Required for Category A/B vendors applying for the first loan."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Identity Card",
+      "is_mandatory": true,
+      "description": "Identity Card issued by the Urban Local Body (ULB). Required for Category A/B vendors applying for the first loan."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Letter of Recommendation",
+      "is_mandatory": true,
+      "description": "Letter of Recommendation (LoR) from the ULB or Town Vending Committee (TVC). Required for Category C/D vendors applying for the first loan."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Aadhaar Card. KYC document required in addition to Certificate of Vending, Identity Card or Letter of Recommendation."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Voter Identity Card",
+      "is_mandatory": false,
+      "description": "Voter Identity Card. KYC document required in addition to Certificate of Vending, Identity Card or Letter of Recommendation."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Driving License",
+      "is_mandatory": false,
+      "description": "Driving License. KYC document required in addition to Certificate of Vending, Identity Card or Letter of Recommendation."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "MGNREGA Card",
+      "is_mandatory": false,
+      "description": "MGNREGA Card. KYC document required in addition to Certificate of Vending, Identity Card or Letter of Recommendation."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "PAN Card",
+      "is_mandatory": false,
+      "description": "PAN Card. KYC document required in addition to Certificate of Vending, Identity Card or Letter of Recommendation."
+    },
+    {
+      "document_type": "bank_details",
+      "document_name": "Copy of Account Statement or Passbook",
+      "is_mandatory": false,
+      "description": "Copy of Account Statement or Passbook. Supporting document for Letter of Recommendation for Category C/D vendors."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Membership Card or other proof of membership",
+      "is_mandatory": false,
+      "description": "Copy of Membership Card or other proof of membership. Supporting document for Letter of Recommendation for Category C/D vendors."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Any other document to substantiate the claim as a vendor",
+      "is_mandatory": false,
+      "description": "Any other document to substantiate the claim as a vendor. Supporting document for Letter of Recommendation for Category C/D vendors."
+    },
+    {
+      "document_type": "declaration",
+      "document_name": "Request letter to ULB",
+      "is_mandatory": false,
+      "description": "Request letter to the Urban Local Body. Supporting document for Letter of Recommendation for Category C/D vendors."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Loan Closure Document",
+      "is_mandatory": true,
+      "description": "Loan Closure Document. Required for second and subsequent loan tranches."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit the PM SVANidhi portal",
+      "description": "Visit https://pmsvanidhi.mohua.gov.in/."
+    },
+    {
+      "step_number": 2,
+      "title": "Click Log In",
+      "description": "Click 'Log In' on the homepage."
+    },
+    {
+      "step_number": 3,
+      "title": "Enter mobile number and captcha",
+      "description": "Enter mobile number and captcha."
+    },
+    {
+      "step_number": 4,
+      "title": "Request OTP",
+      "description": "Request OTP for verification."
+    },
+    {
+      "step_number": 5,
+      "title": "Select vendor category",
+      "description": "After successful login, select the valid vendor category from the available options."
+    },
+    {
+      "step_number": 6,
+      "title": "Enter Survey Reference Number",
+      "description": "Enter the Survey Reference Number (SRN), which is mandatory."
+    },
+    {
+      "step_number": 7,
+      "title": "Fill the online application form",
+      "description": "Fill the online application form."
+    },
+    {
+      "step_number": 8,
+      "title": "Upload the relevant documents",
+      "description": "Upload the relevant documents."
+    },
+    {
+      "step_number": 9,
+      "title": "Submit the application",
+      "description": "Submit the application."
+    },
+    {
+      "step_number": 10,
+      "title": "Refer to the User Manual",
+      "description": "For detailed stepwise instructions, refer to the User Manual at https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=Helping+User+Manual+For+First+Term+Other+State.pdf&path=MiscFiles."
+    },
+    {
+      "step_number": 11,
+      "title": "Contact toll-free helpline",
+      "description": "For queries, call the toll-free number 1800111979. Timing: 9:30 AM to 6:00 PM, Monday to Saturday, except national holidays."
+    },
+    {
+      "step_number": 12,
+      "title": "View contact details",
+      "description": "Visit https://pmsvanidhi.mohua.gov.in/Home/Contact for contact details. UMANG is also available as an application channel."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "meets_pm_svanidhi_vendor_identification_criteria",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant satisfies at least one vendor identification condition as listed in the source."
+    },
+    {
+      "field_name": "vendor_category",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Vendor category as identified during the application process."
+    },
+    {
+      "field_name": "has_certificate_of_vending",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant possesses a Certificate of Vending issued by the ULB."
+    },
+    {
+      "field_name": "has_vendor_identity_card",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant possesses an Identity Card issued by the ULB."
+    },
+    {
+      "field_name": "identified_in_ulb_survey",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the vendor was identified in the ULB-led identification survey."
+    },
+    {
+      "field_name": "certificate_or_id_not_yet_issued",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the vendor was identified in the survey but the Certificate of Vending or Identity Card has not yet been issued."
+    },
+    {
+      "field_name": "left_out_of_ulb_survey",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the vendor was left out of the ULB-led identification survey."
+    },
+    {
+      "field_name": "started_vending_after_survey",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the vendor started vending after completion of the ULB-led identification survey."
+    },
+    {
+      "field_name": "has_letter_of_recommendation",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the vendor has a Letter of Recommendation (LoR) from the ULB or Town Vending Committee."
+    },
+    {
+      "field_name": "letter_of_recommendation_issued_by_ulb_or_tvc",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the Letter of Recommendation was issued by the ULB or Town Vending Committee."
+    },
+    {
+      "field_name": "vendor_area_type",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["urban", "peri_urban", "rural"],
+      "description": "Area type where the vendor operates."
+    },
+    {
+      "field_name": "survey_reference_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Survey Reference Number (SRN), which is mandatory for the application."
+    },
+    {
+      "field_name": "mobile_number",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Mobile number of the applicant for login and communication."
+    },
+    {
+      "field_name": "has_aadhaar",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has an Aadhaar Card."
+    },
+    {
+      "field_name": "has_voter_id",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a Voter Identity Card."
+    },
+    {
+      "field_name": "has_driving_license",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a Driving License."
+    },
+    {
+      "field_name": "has_mgnrega_card",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a MGNREGA Card."
+    },
+    {
+      "field_name": "has_pan_card",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a PAN Card."
+    },
+    {
+      "field_name": "bank_account_or_passbook_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a copy of bank account statement or passbook is available."
+    },
+    {
+      "field_name": "vendor_membership_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a membership card or other proof of membership is available."
+    },
+    {
+      "field_name": "other_vendor_proof_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether any other document to substantiate the claim as a vendor is available."
+    },
+    {
+      "field_name": "request_letter_to_ulb_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a request letter to the ULB is available."
+    },
+    {
+      "field_name": "loan_tranche",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["first", "second", "third"],
+      "description": "Loan tranche being applied for."
+    },
+    {
+      "field_name": "previous_loan_repaid",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the previous loan tranche has been repaid."
+    },
+    {
+      "field_name": "previous_loan_repayment_status",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Repayment status of the previous loan tranche."
+    },
+    {
+      "field_name": "loan_closure_document_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the loan closure document for the previous tranche is available."
+    },
+    {
+      "field_name": "bank_account_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether a bank account is available for loan disbursement and subsidy credit."
+    },
+    {
+      "field_name": "digital_transactions_available",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant can perform digital transactions for cashback eligibility."
+    },
+    {
+      "field_name": "account_is_standard_non_npa",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant's account is standard (non-NPA), required for interest subsidy eligibility."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Scheme details, benefits, eligibility and application process were curated from the supplied myScheme PM SVANidhi content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmsvanidhi.mohua.gov.in/",
+      "helpline_number": "1800111979",
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PM SVANidhi official portal referenced from the supplied source. Toll-free helpline: 1800111979, available 9:30 AM to 6:00 PM, Monday to Saturday, except national holidays."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "https://pmsvanidhi.mohua.gov.in/Default/ViewFile/?id=Helping+User+Manual+For+First+Term+Other+State.pdf&path=MiscFiles",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "PM SVANidhi User Manual referenced from the supplied source."
+    }
+  ]
+}

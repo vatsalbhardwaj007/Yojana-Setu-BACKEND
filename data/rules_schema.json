@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SchemeRule",
+  "description": "Eligibility rule for a scheme. MVP: AND-only, no OR, no nesting, no computed fields.",
+  "type": "object",
+  "required": ["rule_group", "field", "operator", "value", "description"],
+  "properties": {
+    "rule_group": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Logical grouping label, e.g. age, income, category, location, landholding"
+    },
+    "field": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Profile field key this rule evaluates, e.g. age, annual_income, category"
+    },
+    "operator": {
+      "type": "string",
+      "enum": ["=", "!=", ">=", "<=", ">", "<", "in", "not_in", "exists", "between"],
+      "description": "Comparison operator"
+    },
+    "value": {
+      "description": "Comparison value. Scalar for =, !=, >, <, >=, <=. Array for in, not_in. Object {min, max} for between. Boolean for exists.",
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "array" },
+        {
+          "type": "object",
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          },
+          "required": ["min", "max"]
+        }
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Human-readable rule explanation"
+    }
+  },
+  "additionalProperties": false
+}

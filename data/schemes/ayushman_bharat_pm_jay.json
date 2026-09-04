@@ -1,0 +1,282 @@
+{
+  "scheme_code": "ayushman_bharat_pm_jay",
+  "name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+  "description": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (PM-JAY) is implemented by the National Health Authority under the Ministry of Health and Family Welfare. It aims to provide cashless hospitalisation coverage of up to ₹5,00,000 per family per year for secondary and tertiary healthcare services to poor and vulnerable families. The supplied myScheme source describes rural eligibility through deprivation and automatic-inclusion criteria and urban eligibility through specified occupational categories.",
+  "ministry": "Ministry of Health and Family Welfare",
+  "department": "National Health Authority",
+  "scheme_type": "healthcare",
+  "status": "active",
+  "aliases": [
+    "PM-JAY",
+    "Ayushman Bharat PM-JAY",
+    "Pradhan Mantri Jan Arogya Yojana"
+  ],
+  "target_groups": [
+    "poor families",
+    "vulnerable families",
+    "rural households meeting specified deprivation criteria",
+    "urban workers in specified occupational categories"
+  ],
+  "tags": [
+    "Cashless Treatment",
+    "Health",
+    "Hospitalization Cover",
+    "Insurance"
+  ],
+  "benefits": [
+    "Cashless hospitalisation coverage of up to ₹5,00,000 per family per year.",
+    "Coverage is available for secondary and tertiary hospitalisation.",
+    "Treatment costs can include consultation, medicines, diagnostics, surgery, ICU, implants, accommodation and food.",
+    "Provides coverage for 3 days of pre-hospitalisation expenses and 15 days of post-hospitalisation expenses.",
+    "Complications arising during treatment are covered.",
+    "Pre-existing diseases are covered from day one.",
+    "There is no restriction on age, gender or family size.",
+    "Benefits are portable across India at empanelled hospitals.",
+    "The supplied myScheme information states coverage of approximately 1,929 medical procedures."
+  ],
+  "official_url": "https://www.pmjay.gov.in/about/pmjay",
+  "effective_from": "2018-09-23",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "rules": [
+    {
+      "rule_group": "beneficiary_entitlement",
+      "field": "meets_pmjay_entitlement_criteria",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must meet the PM-JAY entitlement criteria applicable to the household or occupational category. The supplied myScheme source describes rural eligibility through specified deprivation or automatic-inclusion criteria and urban eligibility through specified occupational categories."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "vehicle_ownership",
+      "field": "owns_two_three_or_four_wheeler_or_motorized_fishing_boat",
+      "operator": "=",
+      "value": true,
+      "description": "Those who own a two, three, or four-wheeler or a motorized fishing boat are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "farm_equipment",
+      "field": "owns_mechanized_farming_equipment",
+      "operator": "=",
+      "value": true,
+      "description": "Those who own mechanized farming equipment are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "kisan_credit",
+      "field": "has_kisan_credit_card_limit_at_least_50000",
+      "operator": "=",
+      "value": true,
+      "description": "Those who have a Kisan card with a credit limit of ₹50,000 or more are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "government_employment",
+      "field": "is_government_employee",
+      "operator": "=",
+      "value": true,
+      "description": "Those employed by the government are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "government_enterprise",
+      "field": "works_in_government_managed_non_agricultural_enterprise",
+      "operator": "=",
+      "value": true,
+      "description": "Those who work in government-managed non-agricultural enterprises are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "income",
+      "field": "monthly_income",
+      "operator": ">",
+      "value": 10000,
+      "description": "Those earning a monthly income above ₹10,000 are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "household_assets",
+      "field": "owns_refrigerator_or_landline",
+      "operator": "=",
+      "value": true,
+      "description": "Those owning refrigerators and landlines are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "housing",
+      "field": "owns_decent_solidly_built_house",
+      "operator": "=",
+      "value": true,
+      "description": "Those owning a decent, solidly built house are excluded according to the supplied source."
+    },
+    {
+      "rule_group": "agricultural_land",
+      "field": "owns_at_least_5_acres_agricultural_land",
+      "operator": "=",
+      "value": true,
+      "description": "Those owning 5 acres or more of agricultural land are excluded according to the supplied source."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "identity_proof",
+      "document_name": "Age and Identity Proof",
+      "is_mandatory": true,
+      "description": "The supplied source lists Aadhaar Card or PAN Card as age and identity proof."
+    },
+    {
+      "document_type": "address_proof",
+      "document_name": "Proof of Address",
+      "is_mandatory": true,
+      "description": "Proof of address is listed among the required documents."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Contact Details",
+      "is_mandatory": true,
+      "description": "Mobile and email contact details are listed among the required information."
+    },
+    {
+      "document_type": "category_certificate",
+      "document_name": "Caste Certificate",
+      "is_mandatory": true,
+      "description": "Caste certificate is listed among the required documents."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "Income Certificate",
+      "is_mandatory": true,
+      "description": "Income certificate is listed among the required documents."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Proof of Current Family Status",
+      "is_mandatory": true,
+      "description": "Documentary proof of the current status of the family, such as joint or nuclear family status, is listed."
+    },
+    {
+      "document_type": "identity_proof",
+      "document_name": "Aadhaar Card",
+      "is_mandatory": true,
+      "description": "Aadhaar Card is separately listed among the required documents."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit a hospital or Community Service Centre",
+      "description": "A potential beneficiary can visit a hospital or CSC to begin identification for a PM-JAY e-card."
+    },
+    {
+      "step_number": 2,
+      "title": "Submit beneficiary identification details",
+      "description": "Provide available details such as the PM letter, RSBY URN, ration card number or mobile number to the Arogya Mitra."
+    },
+    {
+      "step_number": 3,
+      "title": "Search the beneficiary database",
+      "description": "The Arogya Mitra searches the available entitled databases, including the relevant SECC, RSBY, State Health Scheme or Additional Data Collection Drive databases."
+    },
+    {
+      "step_number": 4,
+      "title": "Complete individual identification",
+      "description": "If the beneficiary is found in the entitled list, Aadhaar or another government ID and a ration card or alternative family ID are used to validate the identity. Scanned documents are uploaded."
+    },
+    {
+      "step_number": 5,
+      "title": "Complete family identification",
+      "description": "The Arogya Mitra identifies the family records using the ration card and supporting scanned documents."
+    },
+    {
+      "step_number": 6,
+      "title": "Submit records for approval",
+      "description": "The individual and family records are submitted to the trust or insurance company for approval."
+    },
+    {
+      "step_number": 7,
+      "title": "Complete approval process",
+      "description": "The health insurance company or trust may approve or recommend rejection. Cases recommended for rejection are finally verified by the State Health Agency."
+    },
+    {
+      "step_number": 8,
+      "title": "Receive PM-JAY e-card",
+      "description": "After approval by the State Health Agency, insurance company or trust, an e-card is issued to the beneficiary."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "meets_pmjay_entitlement_criteria",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant or household meets the applicable PM-JAY entitlement criteria. The supplied source indicates that eligibility is determined through entitled beneficiary databases and specified rural or urban criteria."
+    },
+    {
+      "field_name": "owns_two_three_or_four_wheeler_or_motorized_fishing_boat",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a two, three, or four-wheeler or a motorized fishing boat."
+    },
+    {
+      "field_name": "owns_mechanized_farming_equipment",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns mechanized farming equipment."
+    },
+    {
+      "field_name": "has_kisan_credit_card_limit_at_least_50000",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household has a Kisan card with a credit limit of ₹50,000 or more."
+    },
+    {
+      "field_name": "is_government_employee",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether a relevant household member is employed by the government."
+    },
+    {
+      "field_name": "works_in_government_managed_non_agricultural_enterprise",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether a relevant household member works in a government-managed non-agricultural enterprise."
+    },
+    {
+      "field_name": "monthly_income",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Monthly income used for the exclusion criterion stated in the supplied source."
+    },
+    {
+      "field_name": "owns_refrigerator_or_landline",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a refrigerator or landline."
+    },
+    {
+      "field_name": "owns_decent_solidly_built_house",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns a decent, solidly built house."
+    },
+    {
+      "field_name": "owns_at_least_5_acres_agricultural_land",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the household owns 5 acres or more of agricultural land."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.pmjay.gov.in/about/pmjay",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Record based on the supplied myScheme PM-JAY page and its listed PM-JAY official guidelines/reference material. Rural and urban entitlement criteria are preserved in source terminology rather than incorrectly represented as AND-only rules."
+    }
+  ]
+}

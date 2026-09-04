@@ -1,0 +1,416 @@
+{
+  "scheme_code": "pm_usp_central_sector_scholarship",
+  "name": "Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Central Sector Scheme of Scholarship for College and University Students",
+  "description": "The PM-USP Central Sector Scheme of Scholarship for College and University Students is a scholarship scheme of the Department of Higher Education, Ministry of Education. Its primary objective is to provide financial assistance to meritorious students from poor families, helping them meet part of their day-to-day expenses while pursuing higher studies. Scholarships are awarded based on the results of the Higher Secondary / Class 12th Board Examination, with a maximum of 82,000 fresh scholarships per annum. The scheme supports Graduate and Postgraduate degrees in colleges and universities, as well as professional courses such as Medical and Engineering.",
+  "ministry": "Ministry of Education",
+  "department": "Department of Higher Education",
+  "scheme_type": "scholarship",
+  "status": "active",
+  "official_url": "https://scholarships.gov.in/",
+  "effective_from": "2008-06-01",
+  "effective_to": null,
+  "last_verified_at": "2026-09-03T00:00:00Z",
+  "aliases": [
+    "PM-USP",
+    "PM-USP Central Sector Scheme of Scholarship",
+    "Central Sector Scheme of Scholarship for College and University Students",
+    "CSSS",
+    "Central Sector Scheme of Scholarship"
+  ],
+  "target_groups": [
+    "meritorious students",
+    "students from poor families",
+    "college students",
+    "university students",
+    "undergraduate students",
+    "postgraduate students",
+    "students pursuing professional courses",
+    "students pursuing technical courses"
+  ],
+  "tags": [
+    "College",
+    "Financial Assistance",
+    "Scholarship",
+    "Student",
+    "University"
+  ],
+  "benefits": [
+    "₹12,000 per annum at the Graduation level for the first three years of College and University courses.",
+    "₹20,000 per annum at the Post-graduation level.",
+    "₹20,000 per annum in the 4th and 5th year for students pursuing professional courses where the course duration is five years or an integrated course.",
+    "Students pursuing technical courses such as B.Tech and B.Engg. receive scholarship up to graduation level only: ₹12,000 per annum for the 1st year, ₹12,000 per annum for the 2nd year, ₹12,000 per annum for the 3rd year, and ₹20,000 in the 4th year.",
+    "Scholarship is disbursed directly into the Aadhaar-seeded bank account of the beneficiary through Direct Benefit Transfer (DBT)."
+  ],
+  "rules": [
+    {
+      "rule_group": "education",
+      "field": "above_80th_percentile_class_12",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be above the 80th percentile of successful candidates in the relevant stream from the respective Board of Examination in Class 12th of the 10+2 pattern or equivalent."
+    },
+    {
+      "rule_group": "education",
+      "field": "pursuing_regular_degree_course",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be pursuing a regular degree course."
+    },
+    {
+      "rule_group": "education",
+      "field": "studying_in_recognized_institution",
+      "operator": "=",
+      "value": true,
+      "description": "Applicant must be pursuing the course at an institution recognized by AICTE and the respective concerned Regulatory Bodies."
+    },
+    {
+      "rule_group": "income",
+      "field": "annual_family_income",
+      "operator": "<=",
+      "value": 450000,
+      "description": "Gross parental/family income must not exceed ₹4,50,000 per annum."
+    },
+    {
+      "rule_group": "other",
+      "field": "has_aadhaar_seeded_bank_account",
+      "operator": "=",
+      "value": true,
+      "description": "Student must have an Aadhaar-seeded bank account opened in their own name."
+    },
+    {
+      "rule_group": "renewal",
+      "field": "renewal_annual_marks_percentage",
+      "operator": ">=",
+      "value": 50,
+      "description": "For renewal in each year of study, the applicant must obtain at least 50% marks in the Annual Examination."
+    },
+    {
+      "rule_group": "renewal",
+      "field": "renewal_attendance_percentage",
+      "operator": ">=",
+      "value": 75,
+      "description": "For renewal in each year of study, the applicant's attendance must be at least 75%."
+    }
+  ],
+  "exclusion_rules": [
+    {
+      "rule_group": "education",
+      "field": "is_correspondence_or_distance_mode",
+      "operator": "=",
+      "value": true,
+      "description": "Students pursuing correspondence or distance mode are not eligible."
+    },
+    {
+      "rule_group": "education",
+      "field": "is_diploma_course",
+      "operator": "=",
+      "value": true,
+      "description": "Diploma courses are not eligible."
+    },
+    {
+      "rule_group": "other",
+      "field": "receives_other_scholarship_or_fee_waiver_benefit",
+      "operator": "=",
+      "value": true,
+      "description": "Students already availing another scholarship, State-run scholarship, fee waiver or reimbursement scheme are not eligible."
+    }
+  ],
+  "documents": [
+    {
+      "document_type": "other",
+      "document_name": "12th Mark Sheet",
+      "is_mandatory": true,
+      "description": "Class 12th mark sheet. Required for fresh application."
+    },
+    {
+      "document_type": "income_proof",
+      "document_name": "Family Income Certificate",
+      "is_mandatory": true,
+      "description": "Family income certificate. Required for fresh application."
+    },
+    {
+      "document_type": "category_certificate",
+      "document_name": "Category/Caste Certificate",
+      "is_mandatory": false,
+      "description": "Category or caste certificate. Required only for reserved category students, not for every applicant."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Disability Certificate",
+      "is_mandatory": false,
+      "description": "Disability certificate. Required only if applicable, not for every applicant."
+    },
+    {
+      "document_type": "other",
+      "document_name": "Previous Year Mark Sheet",
+      "is_mandatory": false,
+      "description": "Previous year mark sheet. Required for renewal application. Copies must be provided to institutes during verification if requested by the Institute Nodal Officer (INO)."
+    }
+  ],
+  "tutorial_steps": [
+    {
+      "step_number": 1,
+      "title": "Visit NSP One Time Registration page",
+      "description": "Visit the National Scholarships Portal (NSP) One Time Registration page and select 'Apply for OTR'."
+    },
+    {
+      "step_number": 2,
+      "title": "Read the OTR guidelines",
+      "description": "Read the OTR guidelines and undertaking. Scroll to the bottom, accept the Terms and click 'Next'."
+    },
+    {
+      "step_number": 3,
+      "title": "Register an active mobile number",
+      "description": "Register an active mobile number. Correspondence and communication will be made on the submitted mobile or email."
+    },
+    {
+      "step_number": 4,
+      "title": "Complete Aadhaar e-KYC",
+      "description": "Complete Aadhaar e-KYC. Parent, Legal Guardian or Student Aadhaar number may be entered. Submit the OTP and click 'verify'."
+    },
+    {
+      "step_number": 5,
+      "title": "Complete face authentication",
+      "description": "Enter the required details and click 'Finish' to generate a Reference Number. Download the NSP OTR App and Aadhaar FaceRD App, and complete face authentication for OTR generation."
+    },
+    {
+      "step_number": 6,
+      "title": "Receive OTR number",
+      "description": "After successful face authentication, a 14-digit OTR number is generated and the OTR number is sent by SMS."
+    },
+    {
+      "step_number": 7,
+      "title": "Login on the NSP Applicant Login page",
+      "description": "Visit the Applicant Login page of the National Scholarships Portal. Select 'OTR Login' and enter the OTR number and password."
+    },
+    {
+      "step_number": 8,
+      "title": "Enter captcha and login",
+      "description": "Enter the Captcha and click 'Login'."
+    },
+    {
+      "step_number": 9,
+      "title": "Reset password",
+      "description": "Provide the OTP received on the registered mobile number. The user is directed to the Password Reset screen, where a new password is created and confirmed."
+    },
+    {
+      "step_number": 10,
+      "title": "Access the Applicant's Dashboard",
+      "description": "Click 'Submit'. The user is directed to the Applicant's Dashboard."
+    },
+    {
+      "step_number": 11,
+      "title": "Complete the application form",
+      "description": "Open 'Application Form'. Complete compulsory fields and upload documents. Credentials such as caste and educational qualifications are verified through the DigiLocker facility of MeitY, Government of India."
+    },
+    {
+      "step_number": 12,
+      "title": "Save draft or final submit",
+      "description": "Either 'Save as Draft' and complete later, or 'Final Submit' to apply."
+    },
+    {
+      "step_number": 13,
+      "title": "Track payment status",
+      "description": "Track payment status using the 'Know Your Payment' facility in the Public Financial Management System (PFMS) portal. Payment can be checked using Aadhaar Number, Bank Account Number, or NSP Application ID."
+    },
+    {
+      "step_number": 14,
+      "title": "Application verification",
+      "description": "Applications are verified at two levels: verification by the institute where the student is studying, and verification by the concerned State Higher Education Department or another State-nominated Agency or Official acting as State Nodal Agency. This applies to both fresh and renewal applicants."
+    },
+    {
+      "step_number": 15,
+      "title": "Check application timelines",
+      "description": "NSP provides the timelines for opening and closing the portal."
+    },
+    {
+      "step_number": 16,
+      "title": "Submit renewal within the deadline",
+      "description": "Students are not permanently debarred due to delay in renewal or verification. Renewal applications must be submitted within the applicable cut-off date. Renewal for that year is not allowed if the applicant misses that deadline. Students can apply for renewal in the following year if they meet the eligibility conditions."
+    },
+    {
+      "step_number": 17,
+      "title": "Register a grievance",
+      "description": "Grievances or complaints may be registered through the Public Grievance Portal at http://pgportal.gov.in/grievancenew.aspx. Complaints may also be directed to the Nodal Officer whose email is available on the NSP portal Services tab."
+    }
+  ],
+  "profile_fields": [
+    {
+      "field_name": "is_correspondence_or_distance_mode",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is pursuing correspondence or distance mode."
+    },
+    {
+      "field_name": "above_80th_percentile_class_12",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is above the 80th percentile in Class 12th of the 10+2 pattern or equivalent."
+    },
+    {
+      "field_name": "pursuing_regular_degree_course",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is pursuing a regular degree course."
+    },
+    {
+      "field_name": "studying_in_recognized_institution",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the applicant is pursuing the course at an institution recognized by AICTE and the respective concerned Regulatory Bodies."
+    },
+    {
+      "field_name": "annual_family_income",
+      "field_type": "number",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Gross parental or family income per annum in Indian Rupees."
+    },
+    {
+      "field_name": "has_aadhaar_seeded_bank_account",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the student has an Aadhaar-seeded bank account opened in their own name."
+    },
+    {
+      "field_name": "course_mode",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["regular", "correspondence", "distance", "online"],
+      "description": "Mode of the course being pursued."
+    },
+    {
+      "field_name": "is_diploma_course",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the course pursued is a Diploma course."
+    },
+    {
+      "field_name": "receives_other_scholarship_or_fee_waiver_benefit",
+      "field_type": "boolean",
+      "is_required": true,
+      "allowed_values": null,
+      "description": "Whether the student is already availing another scholarship, State-run scholarship, fee waiver or reimbursement scheme."
+    },
+    {
+      "field_name": "is_renewal_application",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether this is a renewal application rather than a fresh application."
+    },
+    {
+      "field_name": "renewal_annual_marks_percentage",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Percentage of marks obtained in the Annual Examination, applicable for renewal applicants."
+    },
+    {
+      "field_name": "renewal_attendance_percentage",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Attendance percentage, applicable for renewal applicants."
+    },
+    {
+      "field_name": "renewal_deadline_met",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the renewal application was submitted within the applicable cut-off date."
+    },
+    {
+      "field_name": "is_reserved_category",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the student belongs to a reserved category, relevant for the category certificate document requirement."
+    },
+    {
+      "field_name": "is_person_with_disability",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the student is a person with disability, relevant for the disability certificate document requirement."
+    },
+    {
+      "field_name": "has_12th_marksheet",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has the 12th mark sheet."
+    },
+    {
+      "field_name": "has_family_income_certificate",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a family income certificate."
+    },
+    {
+      "field_name": "has_category_certificate",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a category or caste certificate."
+    },
+    {
+      "field_name": "has_disability_certificate",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has a disability certificate."
+    },
+    {
+      "field_name": "has_previous_year_marksheet",
+      "field_type": "boolean",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Whether the applicant has the previous year mark sheet, required for renewal applications."
+    },
+    {
+      "field_name": "course_level",
+      "field_type": "select",
+      "is_required": false,
+      "allowed_values": ["undergraduate", "postgraduate", "professional", "technical"],
+      "description": "Level of the course being pursued."
+    },
+    {
+      "field_name": "course_type",
+      "field_type": "text",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Type of the course being pursued."
+    },
+    {
+      "field_name": "course_duration_years",
+      "field_type": "number",
+      "is_required": false,
+      "allowed_values": null,
+      "description": "Duration of the course in years."
+    }
+  ],
+  "verification": [
+    {
+      "verification_method": "online",
+      "verification_url": "https://www.myscheme.gov.in/",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Source: myScheme. Scheme details, benefits, eligibility, exclusions, application process and documents were curated from the supplied myScheme PM-USP Central Sector Scheme of Scholarship content."
+    },
+    {
+      "verification_method": "online",
+      "verification_url": "http://pgportal.gov.in/grievancenew.aspx",
+      "helpline_number": null,
+      "last_verified_at": "2026-09-03T00:00:00Z",
+      "notes": "Public Grievance Portal URL supplied by the source for lodging grievances or complaints regarding scholarship applications."
+    }
+  ]
+}

@@ -1,14 +1,26 @@
 """YojanaSetu FastAPI Application Entrypoint."""
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api import api_v1_router
 from app.core.config import settings
+from app.db.session import init_db
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifecycle event to initialize database schema and canonical schemes on startup."""
+    init_db()
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
     description="Government Scheme Discovery & Eligibility Engine API",
     version="0.1.0",
+    lifespan=lifespan,
 )
 
 # CORS Middleware configuration
@@ -19,6 +31,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Mount API routers
+app.include_router(api_v1_router)
 
 
 @app.get("/health", tags=["Health"])
