@@ -79,3 +79,76 @@ uvicorn app.main:app --reload --port 8000
 API Documentation will be available at:
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
+
+---
+
+## ⚡ Eligibility Engine API Contract (`POST /eligibility/check`)
+
+Pure deterministic rule evaluation over canonical government scheme criteria.
+
+### Request Body
+```json
+{
+  "scheme_code": "pm_kisan",
+  "profile": {
+    "has_cultivable_land_in_name": true,
+    "paid_income_tax_last_assessment_year": false
+  }
+}
+```
+
+### Response Formats
+
+#### 1. Eligible (`eligible: true`)
+All required eligibility rules pass, no exclusion rule triggered, no missing information.
+```json
+{
+  "scheme_code": "pm_kisan",
+  "status": "Eligible",
+  "eligible": true,
+  "reason_codes": [],
+  "reasons": [],
+  "missing_fields": [],
+  "evaluated_rules": [...]
+}
+```
+
+#### 2. Potentially Eligible (`eligible: null`)
+No rule failed, no exclusion triggered, but 1+ required rules cannot be evaluated due to missing profile information.
+```json
+{
+  "scheme_code": "pm_kisan",
+  "status": "Potentially Eligible",
+  "eligible": null,
+  "reason_codes": ["MISSING_INFORMATION"],
+  "reasons": [],
+  "missing_fields": ["has_cultivable_land_in_name"],
+  "evaluated_rules": [...]
+}
+```
+
+#### 3. Not Eligible (`eligible: false`)
+1+ eligibility rules failed or 1+ exclusion rules triggered.
+```json
+{
+  "scheme_code": "pm_kisan",
+  "status": "Not Eligible",
+  "eligible": false,
+  "reason_codes": ["RULE_FAILED"],
+  "reasons": ["Applicant must belong to a landholding farmer family with cultivable land held in the family's name."],
+  "missing_fields": [],
+  "evaluated_rules": [...]
+}
+```
+
+### Supported Operators
+- `=`, `!=` (strict type-safe equality)
+- `>=`, `<=`, `>`, `<` (numeric and date ordering)
+- `in`, `not_in` (collection containment)
+- `between` (inclusive numeric range `{"min": number, "max": number}`)
+- `exists` (presence / absence verification)
+
+### Reason Codes
+- `RULE_FAILED`: Condition evaluated to `false` on an eligibility rule.
+- `EXCLUSION_TRIGGERED`: Condition evaluated to `true` on an exclusion rule (disqualification).
+- `MISSING_INFORMATION`: Field was absent or `null` in the citizen profile.

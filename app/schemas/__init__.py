@@ -1,5 +1,10 @@
-"""Pydantic schemas and shared data contracts package."""
-
+from app.schemas.eligibility import (
+    EligibilityCheckRequest,
+    EligibilityCheckResponse,
+    EligibilityStatus,
+    EvaluatedRuleResponse,
+    ReasonCode,
+)
 from app.schemas.scheme import (
     DocumentType,
     ProfileFieldType,
@@ -24,6 +29,11 @@ from app.schemas.scheme import (
 )
 
 __all__ = [
+    "EligibilityCheckRequest",
+    "EligibilityCheckResponse",
+    "EligibilityStatus",
+    "EvaluatedRuleResponse",
+    "ReasonCode",
     "DocumentType",
     "ProfileFieldType",
     "RuleOperator",

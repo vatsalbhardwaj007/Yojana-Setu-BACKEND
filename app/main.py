@@ -32,8 +32,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from app.api.v1.eligibility import router as eligibility_router
+
 # Mount API routers
 app.include_router(api_v1_router)
+app.include_router(eligibility_router)
 
 
 @app.get("/health", tags=["Health"])

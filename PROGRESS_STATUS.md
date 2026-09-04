@@ -2,7 +2,7 @@
 
 **Role:** Member 2 — Backend & Rules  
 **Repository:** `Yojana-Setu-BACKEND`  
-**Current Milestone:** Phase 1 Complete (Data & Backend Integration) / Ready for Phase 2  
+**Current Milestone:** Phase 2 Complete (Deterministic Eligibility & Rules Engine)  
 **Last Updated:** September 4, 2026  
 
 ---
@@ -11,42 +11,49 @@
 
 Member 2 is responsible for the **FastAPI backend, Supabase/PostgreSQL database, User/Profile APIs, Scheme APIs, deterministic Eligibility Engine, Reason Codes, and Recommendation/Ranking logic**.
 
-At this checkpoint, **Phase 1 (Data & Backend Integration)** is complete:
-- M4's canonical scheme data layer (15 verified schemes, JSON schemas, canonical values, SQL migrations) has been fully integrated into the backend.
-- The 6 canonical tables (`schemes`, `scheme_rules`, `scheme_documents`, `tutorial_steps`, `scheme_verification`, `scheme_profile_fields`) are represented cleanly in Pydantic schemas, database entity models, and the repository layer.
-- Backend data access layer can retrieve complete scheme details, rules (separated into eligibility vs exclusion), documents, tutorial steps, verification history, and profile fields.
-- 18 automated tests are in place and passing (100% test pass rate).
-- Ready for Phase 2 (Deterministic Eligibility Engine & Reason Codes).
+At this checkpoint, **Phase 2 (Eligibility & Rules Engine)** is complete:
+- Built one pure, generic, deterministic eligibility engine (`app/rules/`).
+- Operates strictly over database rules with **zero hardcoded scheme logic** (no `if scheme_code == ...`).
+- Supports all 10 canonical operators: `=`, `!=`, `>=`, `<=`, `>`, `<`, `in`, `not_in`, `exists`, `between`.
+- Evaluates AND-only eligibility rules alongside disqualifying exclusion rules.
+- Deterministic categorization: `Eligible` (`eligible: true`), `Potentially Eligible` (`eligible: null`), and `Not Eligible` (`eligible: false`).
+- Accurate missing information handling (missing fields added to `missing_fields`, never assumed true or false).
+- Deterministic machine-readable reason codes (`RULE_FAILED`, `EXCLUSION_TRIGGERED`, `MISSING_INFORMATION`) and human-readable explanation reasons derived from stored rule descriptions.
+- Exposed `POST /eligibility/check` and `POST /api/v1/eligibility/check`.
+- **45 automated tests** in place and passing (100% pass rate in <0.8s).
 
 ---
 
-## 2. Completed Work (Phase 0 & Phase 1)
+## 2. Completed Work (Phases 0, 1 & 2)
 
 | Component | Status | Description / Deliverable |
 | :--- | :---: | :--- |
 | **Repository Setup** | ✅ Done | Initialized `Yojana-Setu-BACKEND` on branch `feature/backend` |
 | **Directory Skeleton** | ✅ Done | Modular layout (`api`, `core`, `db`, `models`, `schemas`, `services`, `rules`, `tests`, `data`, `scripts`, `supabase`) |
-| **App Initialization** | ✅ Done | `app/main.py` with FastAPI, lifespan DB initialization, CORS middleware, and `/health` route |
-| **Configuration Layer** | ✅ Done | `app/core/config.py` with Pydantic v2 `BaseSettings` reading environment variables and project paths |
+| **App Initialization** | ✅ Done | `app/main.py` with FastAPI, lifespan DB initialization, CORS middleware, `/health`, and `/eligibility/check` |
+| **Configuration Layer** | ✅ Done | `app/core/config.py` with Pydantic v2 `BaseSettings` |
 | **M4 Data Layer Integration** | ✅ Done | 15 canonical scheme JSONs, schemas, canonical enums, validation scripts, Supabase migrations |
-| **Data Contracts & Schemas** | ✅ Done | `app/schemas/scheme.py` matching M4 6-table canonical structure |
-| **Entity Models** | ✅ Done | `app/models/scheme.py` mapping relational tables |
+| **Data Contracts & Schemas** | ✅ Done | `app/schemas/scheme.py` and `app/schemas/eligibility.py` |
+| **Entity Models** | ✅ Done | `app/models/scheme.py` mapping the 6 canonical database tables |
 | **Relational DB & Session** | ✅ Done | `app/db/session.py` with self-contained relational engine + Supabase connector |
 | **Repository Layer** | ✅ Done | `app/repositories/scheme_repository.py` for queries across all 6 tables |
-| **Service Layer** | ✅ Done | `app/services/scheme_service.py` with `SchemeNotFoundError` and query methods |
-| **Scheme REST APIs** | ✅ Done | `app/api/v1/schemes.py` endpoints for listing, details, rules, docs, tutorials, profile fields |
-| **Testing Suite** | ✅ Done | 18 pytest tests passing across all 10 Phase 1 requirements + health check |
+| **Service Layer** | ✅ Done | `app/services/scheme_service.py` and `app/services/eligibility_service.py` |
+| **Scheme REST APIs** | ✅ Done | `app/api/v1/schemes.py` endpoints for catalog, details, rules, docs, tutorials, profile fields |
+| **Condition Evaluator** | ✅ Done | `app/rules/evaluator.py` evaluating all 10 operators with strict type safety |
+| **Eligibility Engine** | ✅ Done | `app/rules/engine.py` evaluating AND-only eligibility + exclusion rules + reason codes |
+| **Eligibility REST API** | ✅ Done | `POST /eligibility/check` and `POST /api/v1/eligibility/check` with 404/422 handling |
+| **Automated Test Suite** | ✅ Done | 45 pytest tests passing across all operator unit tests, engine scenarios, PMAY-U, PM-KISAN, PM-JAY, schemes, and health check |
 
 ---
 
 ## 3. What Has NOT Been Implemented (By Design)
 
-Per blueprint and Phase 1 specifications, the following are intentionally deferred to subsequent phases:
-- ❌ No eligibility evaluation engine yet (Phase 2 priority)
-- ❌ No profile management / user profile CRUD endpoints (Phase 2)
-- ❌ No recommendation ranking logic (Phase 2)
+Per blueprint specifications and Phase 2 boundaries, the following are intentionally deferred:
+- ❌ No profile management / citizen profile database persistence endpoints (Phase 3 / subsequent work)
+- ❌ No recommendation ranking logic (Phase 3)
 - ❌ No AI / vector embeddings / semantic search (Member 3 responsibility)
 - ❌ No WhatsApp integration (Member 4 responsibility)
+- ❌ No frontend UI (Member 1 responsibility)
 
 ---
 
@@ -56,8 +63,8 @@ Per blueprint and Phase 1 specifications, the following are intentionally deferr
 | :--- | :--- | :---: | :--- |
 | **Phase 0** | Foundation & Scaffolding | M2 | ✅ Completed |
 | **Phase 1** | Scheme data + Backend integration | **M4 + M2** | ✅ Completed (15 schemes, 6 tables, repository & APIs ready) |
-| **Phase 2** | Deterministic Eligibility Engine + Reason Codes | **M2** | 🟡 **Next Immediate Priority** |
-| **Phase 3** | Frontend foundation + Core flow | M1 | — (M1 consuming M2's APIs) |
+| **Phase 2** | Deterministic Eligibility Engine + Reason Codes | **M2** | ✅ Completed (Generic engine, all 10 operators, `/eligibility/check`) |
+| **Phase 3** | Frontend foundation + Core flow | M1 | — (M1 consuming M2's scheme and eligibility APIs) |
 | **Phase 4** | Reverse search + Grounded explainer | M3 | — (M3 integrating embeddings with scheme records) |
 | **Phase 5** | Document readiness + Tutorials | M1 + M4 | — (APIs exposed in Phase 1) |
 | **Phase 6** | Voice + WhatsApp | M3 + M4 | — |
@@ -65,45 +72,26 @@ Per blueprint and Phase 1 specifications, the following are intentionally deferr
 
 ---
 
-## 5. Upcoming Work for Member 2 (Phase 2 Focus)
+## 5. Cross-Team Synchronization & Dependencies
 
-1. **Deterministic Eligibility Engine (`app/rules/`):**
-   - Implement evaluator supporting canonical operators: `=`, `!=`, `>=`, `<=`, `>`, `<`, `in`, `not_in`, `exists`, `between`.
-   - Logic: AND-only eligibility rules + disqualifying exclusion rules (disqualification overrides eligibility).
-   - Categorization: `ELIGIBLE`, `POTENTIALLY_ELIGIBLE` (missing required fields / incomplete profile), `NOT_ELIGIBLE`.
-   - Explainability: Human-readable pass/fail reason codes mapped to evaluated rules and citizen profile attributes.
-2. **Citizen Profile Contracts & Services (`app/schemas/profile.py`, `app/services/profile_service.py`):**
-   - Profile fields aligned with canonical scheme requirements (`age`, `annual_income`, `state`, `gender`, `category`, `occupation`, etc.).
-   - Profile validation and persistence.
-3. **Eligibility Check & Recommendation APIs (`app/api/v1/eligibility.py`):**
-   - `POST /api/v1/eligibility/check`: Evaluate single scheme or full catalog against citizen profile.
-   - `POST /api/v1/schemes/recommend`: Return ranked eligible schemes with match scoring and reason codes.
-4. **User / Profile Management APIs (`app/api/v1/profile.py`):**
-   - `POST /api/v1/profile`, `GET /api/v1/profile`, `PUT /api/v1/profile`.
-
----
-
-## 6. Cross-Team Synchronization & Dependencies
-
-1. **Member 4 (Data / WhatsApp):**
-   - ✅ **Received & Integrated:** 15 verified canonical scheme JSONs, schemas, SQL migrations, and seed scripts.
-   - 🟢 **Next Sync:** Ensure any new schemes or rule updates continue to pass `scripts/validate_data.py`.
-2. **Member 1 (Frontend / UI / UX):**
-   - 🟢 **Ready to Consume:** Scheme catalog and details can now be fetched directly from:
-     - `GET /api/v1/schemes`
-     - `GET /api/v1/schemes/{scheme_code}`
-     - `GET /api/v1/schemes/{scheme_code}/rules`
-     - `GET /api/v1/schemes/{scheme_code}/documents`
-     - `GET /api/v1/schemes/{scheme_code}/tutorials`
-     - `GET /api/v1/schemes/{scheme_code}/profile-fields`
-   - 🟡 **Next Sync:** Finalize citizen onboarding form fields matching `scheme_profile_fields`.
-3. **Member 3 (AI / Search):**
-   - 🟢 **Ready to Consume:** M4 canonical scheme records and metadata are available for embedding generation and semantic search indexing.
-   - 🟡 **Next Sync:** Clarify reverse-search integration contract (direct backend proxy or AI microservice hook).
+1. **Member 1 (Frontend / UI / UX):**
+   - 🟢 **Ready to Consume:**
+     - `GET /api/v1/schemes`: scheme catalog listing.
+     - `GET /api/v1/schemes/{scheme_code}`: scheme details, documents, tutorials, profile fields.
+     - `POST /eligibility/check`: evaluate citizen responses.
+       - Returns `status`: `"Eligible"`, `"Potentially Eligible"`, `"Not Eligible"`.
+       - Returns `eligible`: `true`, `null`, or `false`.
+       - Returns `reason_codes`: `["RULE_FAILED"]`, `["EXCLUSION_TRIGGERED"]`, `["MISSING_INFORMATION"]`.
+       - Returns `missing_fields`: array of fields to prompt citizen for next.
+       - Returns `evaluated_rules`: pass/fail cards for each rule.
+2. **Member 3 (AI / Search):**
+   - 🟢 **Ready to Consume:** Deterministic eligibility verification can be called directly by AI tools via `POST /eligibility/check`.
+3. **Member 4 (Data / WhatsApp):**
+   - 🟢 **Ready to Consume:** WhatsApp bot can invoke `POST /eligibility/check` with user profile responses collected over chat.
 
 ---
 
-## 7. Team Sync & Agent Comparison Prompt
+## 6. Team Sync & Agent Comparison Prompt
 
 *Copy and paste the block below into your team chat or AI agent to get an instant cross-team status sync:*
 
@@ -113,23 +101,27 @@ Here is the current status for Member 2 (Backend & Rules) of the YojanaSetu proj
 - Role: Member 2 (Backend & Rules: FastAPI, Supabase/PostgreSQL, Eligibility Engine)
 - Repository: Yojana-Setu-BACKEND
 - Branch: feature/backend
-- Current Milestone: Phase 1 Complete (Data & Backend Integration) — 100% Passed (18/18 tests)
+- Current Milestone: Phase 2 Complete (Eligibility & Rules Engine) — 100% Passed (45/45 tests)
 - Completed Deliverables:
   1. Full backend architecture and modular layout (api, core, db, models, schemas, services, rules, tests, data, scripts, supabase).
   2. M4 Canonical Data Layer integrated: 15 verified schemes, JSON schemas, canonical enums, validation scripts, Supabase migrations.
-  3. Pydantic contracts (app/schemas/scheme.py) and entity models (app/models/scheme.py) for all 6 tables (schemes, scheme_rules, scheme_documents, tutorial_steps, scheme_verification, scheme_profile_fields).
+  3. Pydantic contracts and database models for all 6 tables (schemes, scheme_rules, scheme_documents, tutorial_steps, scheme_verification, scheme_profile_fields).
   4. Relational database session (app/db/session.py) with deterministic UUIDv5 generation and Supabase client connector.
-  5. Repository (app/repositories/scheme_repository.py) and service layer (app/services/scheme_service.py) supporting complete scheme retrieval, eligibility vs exclusion rule separation, documents, tutorials, verification, and profile fields.
-  6. Operational REST APIs under /api/v1/schemes with full filtering and 404 error handling.
-  7. Automated test suite (app/tests/test_schemes.py & test_health.py) with 18 passing tests.
+  5. Repository (app/repositories/scheme_repository.py) and service layer (app/services/scheme_service.py).
+  6. Generic Deterministic Eligibility Engine (app/rules/engine.py & app/rules/evaluator.py):
+     - Evaluates all 10 canonical operators (=, !=, >=, <=, >, <, in, not_in, exists, between).
+     - Strict type safety (no implicit bool/int conversion).
+     - Evaluates AND-only eligibility rules and disqualifying exclusion rules.
+     - Deterministic statuses: "Eligible" (true), "Potentially Eligible" (null), "Not Eligible" (false).
+     - Missing information tracked in missing_fields without assuming true or false.
+     - Deterministic reason codes (RULE_FAILED, EXCLUSION_TRIGGERED, MISSING_INFORMATION).
+     - Zero hardcoded scheme logic; database rules are the single source of truth.
+  7. Eligibility API endpoints: POST /eligibility/check and POST /api/v1/eligibility/check.
+  8. Full test suite with 45 passing tests (test_rules_evaluator, test_eligibility_engine, test_eligibility_api, test_schemes, test_health).
 - What is NOT Implemented (By Design):
-  Eligibility engine calculations and profile scoring (deferred to Phase 2 to keep phases clean).
-- Immediate Next Focus (Phase 2):
-  1. Generic deterministic eligibility engine supporting canonical operators (=, !=, >=, <=, >, <, in, not_in, exists, between).
-  2. Explainable reason code generator and pass/fail summary cards.
-  3. Citizen profile schemas and eligibility evaluation endpoints (POST /api/v1/eligibility/check).
-- Current Cross-Team Readiness:
-  - M1 (Frontend): APIs ready to consume scheme lists, details, documents, tutorials, and profile field requirements.
-  - M3 (AI / Search): Canonical scheme JSONs ready for embedding generation.
-  - M4 (Data): Data layer successfully integrated and verified via validate_data.py.
+  Profile persistence and recommendation ranking logic (deferred to future phases).
+- Cross-Team Readiness:
+  - M1 (Frontend): Can consume /schemes and POST /eligibility/check.
+  - M3 (AI / Search): Can invoke deterministic eligibility check.
+  - M4 (Data / WhatsApp): Can verify user answers via eligibility API.
 ```
