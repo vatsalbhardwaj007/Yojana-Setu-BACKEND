@@ -33,15 +33,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from app.api.v1.auth import router as auth_router
 from app.api.v1.eligibility import router as eligibility_router
 from app.api.v1.profile import router as profile_router
 from app.api.v1.schemes import router as schemes_router
 
-# Mount API routers (both at /api/v1 and root level for Phase 3 contract)
+# Mount API routers (both at /api/v1 and root level for client flexibility)
 app.include_router(api_v1_router)
+app.include_router(auth_router)
 app.include_router(schemes_router)
 app.include_router(eligibility_router)
 app.include_router(profile_router)
+
 
 
 @app.get("/health", tags=["Health"])
