@@ -40,6 +40,9 @@ class Settings(BaseSettings):
     # CORS Configuration
     CORS_ORIGINS: list[str] | str = ["*"]
 
+    # Gemini AI Configuration (speech-to-text). Leave empty to skip server STT.
+    GEMINI_API_KEY: str = ""
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def assemble_cors_origins(cls, v: str | list[str]) -> list[str]:

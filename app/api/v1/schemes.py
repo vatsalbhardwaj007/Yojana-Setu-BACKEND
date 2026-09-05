@@ -138,7 +138,7 @@ def get_scheme_documents(
         docs = service.get_scheme_documents(
             scheme.scheme_code, document_type=document_type, is_mandatory=is_mandatory
         )
-        if request.url.path.startswith("/schemes/"):
+        if request.url.path.startswith(("/schemes/", "/api/v1/schemes/")):
             return SchemeDocumentsResponse(scheme_code=scheme.scheme_code, documents=docs)
         return docs
     except SchemeNotFoundError:
@@ -181,7 +181,7 @@ def get_scheme_tutorials(
     try:
         scheme = service.get_scheme_by_code_or_id(scheme_id)
         steps = service.get_tutorial_steps(scheme.scheme_code)
-        if request.url.path.startswith("/schemes/"):
+        if request.url.path.startswith(("/schemes/", "/api/v1/schemes/")):
             return SchemeTutorialResponse(scheme_code=scheme.scheme_code, steps=steps)
         return steps
     except SchemeNotFoundError:

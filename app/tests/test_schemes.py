@@ -339,7 +339,8 @@ def test_api_get_scheme_documents(client):
     resp = client.get("/api/v1/schemes/pm_kisan/documents")
     assert resp.status_code == 200
     docs = resp.json()
-    assert len(docs) == 3
+    assert docs["scheme_code"] == "pm_kisan"
+    assert len(docs["documents"]) == 3
 
 
 def test_api_get_scheme_tutorials(client):
@@ -347,7 +348,8 @@ def test_api_get_scheme_tutorials(client):
     resp = client.get("/api/v1/schemes/pm_kisan/tutorials")
     assert resp.status_code == 200
     tutorials = resp.json()
-    assert len(tutorials) == 7
+    assert tutorials["scheme_code"] == "pm_kisan"
+    assert len(tutorials["steps"]) == 7
 
 
 def test_api_get_scheme_profile_fields(client):
